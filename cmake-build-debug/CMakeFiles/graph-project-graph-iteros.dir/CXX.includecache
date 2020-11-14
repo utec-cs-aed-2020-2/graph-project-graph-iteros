@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Jorge/Desktop/GitHub/AED/graph-project-graph-iteros/main.cpp
+iostream
+-
+Tester/tester.h
+C:/Users/Jorge/Desktop/GitHub/AED/graph-project-graph-iteros/Tester/tester.h
+Parser/parser.h
+C:/Users/Jorge/Desktop/GitHub/AED/graph-project-graph-iteros/Parser/parser.h
+
