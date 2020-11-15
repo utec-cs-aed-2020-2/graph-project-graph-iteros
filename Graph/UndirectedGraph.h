@@ -28,7 +28,6 @@ public:
     void displayVertex(string id);
     bool findById(string id);
     void display();
-
 };
 
 template<typename TV, typename TE>
