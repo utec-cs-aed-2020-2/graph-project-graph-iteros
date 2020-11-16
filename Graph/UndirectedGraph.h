@@ -4,6 +4,14 @@
 #include "graph.h"
 
 template<typename TV, typename TE>
+struct compWeight {
+    bool operator()(const Edge<TV, TE>* e1, const Edge<TV, TE>* e2) const
+    {
+        return e1->weight > e2->weight;
+    }
+};
+
+template<typename TV, typename TE>
 class UnDirectedGraph : public Graph<TV, TE>{
 private:
     ///TODO: No sé qué quieran agregar al grafo
@@ -28,6 +36,8 @@ public:
     void displayVertex(string id);
     bool findById(string id);
     void display();
+
+    priority_queue<Edge<TV, TE>*, vector<Edge<TV, TE>*>, compWeight<TV, TE>> getOrderedEdges();
 };
 
 template<typename TV, typename TE>
@@ -35,9 +45,13 @@ UnDirectedGraph<TV, TE>::UnDirectedGraph() {this->edges = 0;}
 
 template<typename TV, typename TE>
 bool UnDirectedGraph<TV, TE>::insertVertex(string id, TV vertex) {
-    Vertex<TV, TE>* v = new Vertex<TV, TE>(vertex);
-    this->vertexes[id] = v;
+    if (!findById(id)) {
+        Vertex<TV, TE> *v = new Vertex<TV, TE>(vertex);
+        this->vertexes[id] = v;
+        return true;
+    }
 
+    return false;
     // Se debería comprobar si id del vértice ya existe
     /*
 
@@ -53,13 +67,16 @@ bool UnDirectedGraph<TV, TE>::insertVertex(string id, TV vertex) {
 
 template<typename TV, typename TE>
 bool UnDirectedGraph<TV, TE>::createEdge(string id1, string id2, TE w) {
-    Edge<TV, TE>* e1 = new Edge<TV, TE>(this->vertexes[id1], this->vertexes[id2], w);
-    this->vertexes[id1]->edges.push_back(e1);
-    Edge<TV, TE>* e2 = new Edge<TV, TE>(this->vertexes[id2], this->vertexes[id1], w);
-    this->vertexes[id2]->edges.push_back(e2);
-    this->edges++;
+    if (findById(id1) && findById(id2)) {
+        Edge<TV, TE> *e1 = new Edge<TV, TE>(this->vertexes[id1], this->vertexes[id2], w);
+        this->vertexes[id1]->edges.push_back(e1);
+        Edge<TV, TE> *e2 = new Edge<TV, TE>(this->vertexes[id2], this->vertexes[id1], w);
+        this->vertexes[id2]->edges.push_back(e2);
+        this->edges++;
+        return true;
+    }
 
-
+    return false;
     // Creo que faltaría verificar algunas cosas antes de insertar una arista
     /*
     // Para verificar que los vértices existan
@@ -167,14 +184,6 @@ bool UnDirectedGraph<TV, TE>::isConnected() {
     return false;
 }
 
-/*
- * Solo para grafos directos
-template<typename TV, typename TE>
-bool UnDirectedGraph<TV, TE>::isStronglyConnected() {
-    //TODO
-}
- */
-
 template<typename TV, typename TE>
 bool UnDirectedGraph<TV, TE>::empty() {
     return this->vertexes.size() != 0;
@@ -214,5 +223,18 @@ void UnDirectedGraph<TV, TE>::display() {
     }
 }
 
+template<typename TV, typename TE>
+priority_queue<Edge<TV, TE>*, vector<Edge<TV, TE>*>, compWeight<TV, TE>> UnDirectedGraph<TV, TE>::getOrderedEdges() {
+    priority_queue<Edge<TV, TE>*, vector<Edge<TV, TE>*>, compWeight<TV, TE>> pq;
+    vector<Vertex<TV, TE>*> visited;
+    for (auto i : this->vertexes) {
+        visited.push_back(i.second);
+        for (auto j : i.second->edges) {
+            if (find(visited.begin(), visited.end(), j->vertexes[1]) == visited.end())
+                pq.push(j);
+        }
+    }
+    return pq;
+}
 
 #endif
