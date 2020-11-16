@@ -138,6 +138,33 @@ bool UnDirectedGraph<TV, TE>::isDense(float threshold) {
 template<typename TV, typename TE>
 bool UnDirectedGraph<TV, TE>::isConnected() {
     //TODO
+    auto id = this->vertexes.begin()->first;
+    std::unordered_map<TV, bool> visited;
+    std::queue<Vertex<TV, TE>*> q;
+    for (auto it : this->vertexes)
+        visited[(it.second)->data] = false;
+
+    visited[this->vertexes[id]->data] = true;
+
+    q.push(this->vertexes[id]);
+    auto u = q.front();
+    q.push(u);
+    while (!q.empty()) {
+        u = q.front();
+        q.pop();
+        for (auto it : u->edges) {
+            if (visited[(it->vertexes)[1]->data] == false) {
+                q.push((it->vertexes)[1]);
+                visited[(it->vertexes)[1]->data] = true;
+                //std::cout <<  u->data << "<->" << (it->vertexes)[1]->data << " ";
+            }
+        }
+    }
+
+    if (std::all_of(visited.begin(), visited.end(), [](auto x){return x.second;}))
+        return true;
+
+    return false;
 }
 
 /*
