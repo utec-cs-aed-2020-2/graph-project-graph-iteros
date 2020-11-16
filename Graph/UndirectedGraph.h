@@ -40,6 +40,7 @@ public:
     priority_queue<Edge<TV, TE>*, vector<Edge<TV, TE>*>, compWeight<TV, TE>> getOrderedEdges();
     int getSize();
     bool isCyclic();
+    bool edgeExists(string id1, string id2);
 };
 
 template<typename TV, typename TE>
@@ -54,22 +55,17 @@ bool UnDirectedGraph<TV, TE>::insertVertex(string id, TV vertex) {
     }
 
     return false;
-    // Se debería comprobar si id del vértice ya existe
-    /*
-
-    if ( this->vertexes.count(id)==0 ) {
-        this->vertexes[id] = new Vertex<TV, TE>(vertex);
-        return true;
-    }
-    else
-        return false;
-
-     */
 }
 
 template<typename TV, typename TE>
 bool UnDirectedGraph<TV, TE>::createEdge(string id1, string id2, TE w) {
     if (findById(id1) && findById(id2)) {
+        for (auto it : this->vertexes[id1]->edges) {
+            if (it->vertexes[1]->data == this->vertexes[id2]->data)
+                // Si esto pasa significa que ya existe una arista de id1 -> id2
+                return false;
+        }
+
         Edge<TV, TE> *e1 = new Edge<TV, TE>(this->vertexes[id1], this->vertexes[id2], w);
         this->vertexes[id1]->edges.push_back(e1);
         Edge<TV, TE> *e2 = new Edge<TV, TE>(this->vertexes[id2], this->vertexes[id1], w);
@@ -201,8 +197,7 @@ template<typename TV, typename TE>
 void UnDirectedGraph<TV, TE>::displayVertex(string id) {
     cout << this->vertexes[id]->data << "-> ";
     for (auto const& j : this->vertexes[id]->edges) {
-        if (this->vertexes[id] == j->vertexes[0]) cout << j->vertexes[1]->data << "(" << j->weight << ")" << " ";
-        else cout << j->vertexes[0]->data << "(" << j->weight << ")" << " ";
+        cout << j->vertexes[1]->data << "(" << j->weight << ")" << " ";
     }
     cout << endl;
 }
@@ -218,8 +213,7 @@ void UnDirectedGraph<TV, TE>::display() {
     for (auto i : this->vertexes) {
         cout << i.second->data << "-> ";
         for (auto j : i.second->edges) {
-            if (i.second == j->vertexes[0]) cout << j->vertexes[1]->data << "(" << j->weight << ")" << " ";
-            else cout << j->vertexes[0]->data << "(" << j->weight << ")" << " ";
+            cout << j->vertexes[1]->data << "(" << j->weight << ")" << " ";
         }
         cout << endl;
     }
@@ -248,6 +242,17 @@ bool UnDirectedGraph<TV, TE>::isCyclic() {
 template<typename TV, typename TE>
 int UnDirectedGraph<TV, TE>::getSize() {
     return this->vertexes.size();
+}
+
+template<typename TV, typename TE>
+bool UnDirectedGraph<TV, TE>::edgeExists(string id1, string id2) {
+    if (findById(id2) && findById(id2)) {
+        for (auto i : this->vertexes[id1]->edges) {
+            if (i->vertexes[1] == this->vertexes[id2])
+                return true;
+        }
+    }
+    return false;
 }
 
 #endif

@@ -115,8 +115,7 @@ template<typename TV, typename TE>
 void DirectedGraph<TV, TE>::displayVertex(string id) {
     cout << this->vertexes[id]->data << "-> ";
     for (auto const& j : this->vertexes[id]->edges) {
-        if (this->vertexes[id] == j->vertexes[0]) cout << j->vertexes[1]->data << "(" << j->weight << ")" << " ";
-        else cout << j->vertexes[0]->data << "(" << j->weight << ")" << " ";
+        cout << j->vertexes[1]->data << "(" << j->weight << ")" << " ";
     }
     cout << endl;
 }
@@ -132,8 +131,7 @@ void DirectedGraph<TV, TE>::display() {
     for (auto i : this->vertexes) {
         cout << i.second->data << "-> ";
         for (auto j : i.second->edges) {
-            if (i.second == j->vertexes[0]) cout << j->vertexes[1]->data << "(" << j->weight << ")" << " ";
-            else cout << j->vertexes[0]->data << "(" << j->weight << ")" << " ";
+            cout << j->vertexes[1]->data << "(" << j->weight << ")" << " ";
         }
         cout << endl;
     }

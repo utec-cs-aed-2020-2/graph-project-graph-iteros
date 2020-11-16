@@ -51,16 +51,8 @@ int main(int argc, char *argv[]) {
 
     result1.display();
     cout << endl;
-    result2.display();
-    cout << endl;
-
-    auto pq = graph.getOrderedEdges();
-    cout << pq.size() << endl;
-    while (!pq.empty()) {
-        auto i = pq.top();
-        cout << i->weight << " ";
-        pq.pop();
-    }
+    //result2.display();
+    //cout << endl;
     
     return EXIT_SUCCESS;
 }

@@ -24,15 +24,14 @@ UnDirectedGraph<TV, TE> Kruskal<TV, TE>::apply() {
         Edge<TV, TE>* e = pq.top();
         pq.pop();
 
-        UnDirectedGraph<TV, TE> temp;
-        temp.insertVertex(e->vertexes[0]->key, e->vertexes[0]->data);
-        temp.insertVertex(e->vertexes[1]->key, e->vertexes[1]->data);
-        temp.createEdge(e->vertexes[0]->key, e->vertexes[1]->key, e->weight);
+        bool insert1 = g.insertVertex(e->vertexes[0]->key, e->vertexes[0]->data);
+        bool insert2 = g.insertVertex(e->vertexes[1]->key, e->vertexes[1]->data);
+        g.createEdge(e->vertexes[0]->key, e->vertexes[1]->key, e->weight);
 
-        if (!temp.isCyclic()) {
-            g.insertVertex(e->vertexes[0]->key, e->vertexes[0]->data);
-            g.insertVertex(e->vertexes[1]->key, e->vertexes[1]->data);
-            g.createEdge(e->vertexes[0]->key, e->vertexes[1]->key, e->weight);
+        if (g.isCyclic()) {
+            g.deleteEdge(e->vertexes[0]->key, e->vertexes[1]->key);
+            if (insert1) g.deleteVertex(e->vertexes[0]->key);
+            if (insert2) g.deleteVertex(e->vertexes[1]->key);
         }
     }
 
