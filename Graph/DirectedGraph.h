@@ -35,7 +35,7 @@ DirectedGraph<TV, TE>::DirectedGraph() {this->edges = 0;}
 
 template<typename TV, typename TE>
 bool DirectedGraph<TV, TE>::insertVertex(string id, TV vertex) {
-    Vertex<TV, TE>* v = new Vertex<TV, TE>(vertex);
+    Vertex<TV, TE>* v = new Vertex<TV, TE>(vertex, id);
     this->vertexes[id] = v;
 }
 

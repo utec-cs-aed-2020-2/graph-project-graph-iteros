@@ -38,6 +38,8 @@ public:
     void display();
 
     priority_queue<Edge<TV, TE>*, vector<Edge<TV, TE>*>, compWeight<TV, TE>> getOrderedEdges();
+    int getSize();
+    bool isCyclic();
 };
 
 template<typename TV, typename TE>
@@ -46,7 +48,7 @@ UnDirectedGraph<TV, TE>::UnDirectedGraph() {this->edges = 0;}
 template<typename TV, typename TE>
 bool UnDirectedGraph<TV, TE>::insertVertex(string id, TV vertex) {
     if (!findById(id)) {
-        Vertex<TV, TE> *v = new Vertex<TV, TE>(vertex);
+        Vertex<TV, TE> *v = new Vertex<TV, TE>(vertex, id);
         this->vertexes[id] = v;
         return true;
     }
@@ -235,6 +237,17 @@ priority_queue<Edge<TV, TE>*, vector<Edge<TV, TE>*>, compWeight<TV, TE>> UnDirec
         }
     }
     return pq;
+}
+
+template<typename TV, typename TE>
+bool UnDirectedGraph<TV, TE>::isCyclic() {
+    //TODO
+    return false;
+}
+
+template<typename TV, typename TE>
+int UnDirectedGraph<TV, TE>::getSize() {
+    return this->vertexes.size();
 }
 
 #endif

@@ -17,7 +17,26 @@ Kruskal<TV, TE>::Kruskal(UnDirectedGraph<TV, TE> *graph) {
 
 template<typename TV, typename TE>
 UnDirectedGraph<TV, TE> Kruskal<TV, TE>::apply() {
-    return *graph;
+    UnDirectedGraph<TV, TE> g;
+    auto pq = graph->getOrderedEdges();
+
+    while (g.getSize() < graph->getSize() && !pq.empty()) {
+        Edge<TV, TE>* e = pq.top();
+        pq.pop();
+
+        UnDirectedGraph<TV, TE> temp;
+        temp.insertVertex(e->vertexes[0]->key, e->vertexes[0]->data);
+        temp.insertVertex(e->vertexes[1]->key, e->vertexes[1]->data);
+        temp.createEdge(e->vertexes[0]->key, e->vertexes[1]->key, e->weight);
+
+        if (!temp.isCyclic()) {
+            g.insertVertex(e->vertexes[0]->key, e->vertexes[0]->data);
+            g.insertVertex(e->vertexes[1]->key, e->vertexes[1]->data);
+            g.createEdge(e->vertexes[0]->key, e->vertexes[1]->key, e->weight);
+        }
+    }
+
+    return g;
 }
 
 #endif //GRAPH_PROJECT_GRAPH_ITEROS_KRUSKAL_H

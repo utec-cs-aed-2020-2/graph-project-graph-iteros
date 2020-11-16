@@ -40,11 +40,14 @@ int main(int argc, char *argv[]) {
     graph.createEdge("3", "4", 15);
     graph.createEdge("2", "4", 20);
 
+    graph.display();
+    cout << endl;
+
     Kruskal<char, int> kruskal(&graph);
     UnDirectedGraph<char, int> result1 = kruskal.apply();
 
     Prim<char, int> prim(&graph, "1");
-    UnDirectedGraph<char, int> result2 = kruskal.apply();
+    UnDirectedGraph<char, int> result2 = prim.apply();
 
     result1.display();
     cout << endl;

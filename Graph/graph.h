@@ -35,9 +35,11 @@ struct Edge {
 template<typename TV, typename TE>
 struct Vertex {
     TV data;
+    string key;
     std::list<Edge<TV, TE>*> edges;
-    Vertex(TV data) {
+    Vertex(TV data, string key) {
         this->data = data;
+        this->key = key;
     }
 };
 
