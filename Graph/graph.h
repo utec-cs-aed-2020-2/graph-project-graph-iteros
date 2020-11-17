@@ -7,6 +7,7 @@
 #include <queue>
 #include <iostream>
 #include <algorithm>
+#include <stdexcept>
 
 using namespace std;
 
@@ -44,10 +45,15 @@ struct Vertex {
 };
 
 template<typename TV, typename TE>
+struct Prim;
+
+template<typename TV, typename TE>
 class Graph{
 protected:
     std::unordered_map<string, Vertex<TV, TE>*>  vertexes;
     unsigned int edges;
+
+    friend struct Prim<TV, TE>;
     
 public:
     virtual bool insertVertex(string id, TV vertex) = 0;
