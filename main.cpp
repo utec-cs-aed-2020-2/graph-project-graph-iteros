@@ -1,11 +1,6 @@
-#include <iostream>
-#include "Graph/UndirectedGraph.h"
-#include "Graph/DirectedGraph.h"
 #include "Graph/Algorithms/Kruskal.h"
 #include "Graph/Algorithms/Prim.h"
-
-//#include "Tester/tester.h"
-//#include "Parser/parser.h"
+#include "Tester/tester.h"
 
 using namespace std;
 
@@ -14,8 +9,9 @@ int main(int argc, char *argv[]) {
     std::cout << "MENU GRAPH TESTER" << std::endl;
     std::cout << "================================================" << std::endl;
     
-    //Tester::executeExamples();
-    //Tester::executeParser();
+    Tester::executeExamples();
+    Tester::executeParser();
+
     /*Graph<char, int>* g = new DirectedGraph<char, int>();
     g->insertVertex("1", 'A');
     g->insertVertex("2", 'B');
@@ -39,7 +35,7 @@ int main(int argc, char *argv[]) {
     graph.createEdge("1", "3", 5);
     graph.createEdge("3", "4", 15);
     graph.createEdge("2", "4", 20);
-    graph.createEdge("2", "3", 12);
+    graph.createEdge("2", "3", 14);
 
     graph.display();
     cout << endl;
@@ -47,13 +43,21 @@ int main(int argc, char *argv[]) {
     Kruskal<char, int> kruskal(&graph);
     UnDirectedGraph<char, int> result1 = kruskal.apply();
 
-    //Prim<char, int> prim(&graph, "1");
-    //UnDirectedGraph<char, int> result2 = prim.apply();
+    Prim<char, int> prim(&graph, "1");
+    UnDirectedGraph<char, int> result2 = prim.apply();
 
     result1.display();
     cout << endl;
-    //result2.display();
-    //cout << endl;
+    result2.display();
+    cout << endl;
+
+    /*
+     * TODO:
+     * - isConnected, isStronglyConnected on DirectedGraph
+     * - Prim
+     * - Parser
+     * - Tester
+     */
     
     return EXIT_SUCCESS;
 }
