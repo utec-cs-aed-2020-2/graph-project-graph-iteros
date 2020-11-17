@@ -40,6 +40,7 @@ public:
     priority_queue<Edge<TV, TE>*, vector<Edge<TV, TE>*>, compWeight<TV, TE>> getOrderedEdges();
     int getSize();
     bool isCyclic();
+    bool isCyclicUtil(string id, pair<string, bool> visited[], string parent);
     bool edgeExists(string id1, string id2);
 };
 
@@ -235,7 +236,46 @@ priority_queue<Edge<TV, TE>*, vector<Edge<TV, TE>*>, compWeight<TV, TE>> UnDirec
 
 template<typename TV, typename TE>
 bool UnDirectedGraph<TV, TE>::isCyclic() {
-    //TODO
+    pair<string, bool>* visited = new pair<string, bool>[getSize()];
+    int cont = 0;
+    for (auto i : this->vertexes) {
+        visited[cont++] = make_pair(i.first, false);
+    }
+
+    for (int i = 0; i < getSize(); ++i) {
+        if (!visited[i].second) {
+            if (isCyclicUtil(visited[i].first, visited, ""))
+                return true;
+        }
+    }
+
+    return false;
+}
+
+template<typename TV, typename TE>
+bool UnDirectedGraph<TV, TE>::isCyclicUtil(string id, pair<string, bool> *visited, string parent) {
+    for (int i = 0; i < getSize(); i++) {
+        if (visited[i].first == id)
+            visited[i].second = true;
+    }
+
+    for (auto i : this->vertexes[id]->edges) {
+        Vertex<TV, TE>* vertex = i->vertexes[1];
+        bool isVisited;
+        for (int j = 0; j < getSize(); ++j) {
+            if (visited[j].first == vertex->key)
+                isVisited = visited[j].second;
+        }
+
+        if (!isVisited) {
+            if (isCyclicUtil(vertex->key, visited, id))
+                return true;
+        }
+
+        else if (vertex->key != parent)
+            return true;
+    }
+
     return false;
 }
 
