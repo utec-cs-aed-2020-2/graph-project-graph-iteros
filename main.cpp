@@ -1,8 +1,8 @@
 #include <iostream>
 #include "Graph/UndirectedGraph.h"
 #include "Graph/DirectedGraph.h"
-#include "Graph/Kruskal.h"
-#include "Graph/Prim.h"
+#include "Graph/Algorithms/Kruskal.h"
+#include "Graph/Algorithms/Prim.h"
 
 //#include "Tester/tester.h"
 //#include "Parser/parser.h"

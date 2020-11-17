@@ -1,7 +1,7 @@
 #ifndef GRAPH_PROJECT_GRAPH_ITEROS_PRIM_H
 #define GRAPH_PROJECT_GRAPH_ITEROS_PRIM_H
 
-#include "UndirectedGraph.h"
+#include "../UndirectedGraph.h"
 
 template<typename TV, typename TE>
 struct Prim {
