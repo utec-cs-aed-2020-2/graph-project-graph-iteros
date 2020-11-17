@@ -58,6 +58,43 @@ int main(int argc, char *argv[]) {
      * - Parser
      * - Tester
      */
-    
+
+    /*
+    DirectedGraph<int, int> g;
+    g.insertVertex("a", 1);
+    g.insertVertex("b", 2);
+    g.insertVertex("c", 3);
+    //g.insertVertex("d", 4);
+    //g.insertVertex("e", 5);
+
+    g.createEdge("a", "b", 5);
+    g.createEdge("b", "c", 4);
+    g.createEdge("a", "c", 10);
+    g.createEdge("b", "a", 9);
+    g.createEdge("c", "a", 12);
+    g.createEdge("c", "b", 14);
+
+    //g.createEdge("c", "d", 3);
+    //g.createEdge("d", "e", 6);
+
+    g.display();
+
+    cout << endl << endl;
+
+    if (g.isConnected()) {
+        cout << "is connected" << endl;
+    } else {
+        cout << "is not connected" << endl;
+    }
+
+    cout << endl;
+
+    if (g.isStronglyConnected()) {
+        cout << "is strongly connected" << endl;
+    } else {
+        cout << "is not strongly connected" << endl;
+    }
+
+     */
     return EXIT_SUCCESS;
 }

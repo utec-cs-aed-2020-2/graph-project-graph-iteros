@@ -93,11 +93,73 @@ bool DirectedGraph<TV, TE>::isDense(float threshold) {
 template<typename TV, typename TE>
 bool DirectedGraph<TV, TE>::isConnected() {
     //TODO
+
+    for(auto iter : this->vertexes) {
+        auto id = iter.first;
+        std::unordered_map<TV, bool> visited;
+        std::queue<Vertex<TV, TE>*> q;
+        for (auto it : this->vertexes)
+            visited[(it.second)->data] = false;
+        visited[this->vertexes[id]->data] = true;
+        q.push(this->vertexes[id]);
+        auto u = q.front();
+        q.push(u);
+        while (!q.empty()) {
+            u = q.front();
+            q.pop();
+            for (auto it : u->edges) {
+                if (visited[(it->vertexes)[1]->data] == false) {
+                    q.push((it->vertexes)[1]);
+                    visited[(it->vertexes)[1]->data] = true;
+                }
+            }
+        }
+
+        // En el grafo dirigido hay que comprobar si al menos hay un vértice que puede llegar a todos
+        if (std::all_of(visited.begin(), visited.end(), [](auto x){return x.second;}))
+            return true;
+    }
+
+    // Si no hubo, false
+    return false;
 }
 
 template<typename TV, typename TE>
 bool DirectedGraph<TV, TE>::isStronglyConnected() {
     //TODO
+
+    // Para que sea fuertemente conectado debe tener camino entre cualquier par de vértices
+    int comp = 0;
+    for(auto iter : this->vertexes) {
+        auto id = iter.first;
+        std::unordered_map<TV, bool> visited;
+        std::queue<Vertex<TV, TE>*> q;
+        for (auto it : this->vertexes)
+            visited[(it.second)->data] = false;
+        visited[this->vertexes[id]->data] = true;
+        q.push(this->vertexes[id]);
+        auto u = q.front();
+        q.push(u);
+        while (!q.empty()) {
+            u = q.front();
+            q.pop();
+            for (auto it : u->edges) {
+                if (visited[(it->vertexes)[1]->data] == false) {
+                    q.push((it->vertexes)[1]);
+                    visited[(it->vertexes)[1]->data] = true;
+                }
+            }
+        }
+
+        for (auto x : visited) {
+            if (!x.second)
+                return false;
+        }
+
+        comp++;
+    }
+
+    return comp == this->vertexes.size();
 }
 
 template<typename TV, typename TE>
