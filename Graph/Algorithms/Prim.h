@@ -3,14 +3,6 @@
 
 #include "../UndirectedGraph.h"
 
-template<typename TV, typename TE>
-struct compWeightPair {
-    bool operator()(const pair<string, TE> p1, const pair<string, TE> p2) const
-    {
-        return p1.second < p2.second;
-    }
-};
-
 template<typename TE>
 bool compWeightP(pair<string, TE> p1, pair<string, TE> p2) {
     TE temp1 = p1.second;
