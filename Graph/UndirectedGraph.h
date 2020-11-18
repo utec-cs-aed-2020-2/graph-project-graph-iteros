@@ -15,6 +15,9 @@ template<typename TV, typename TE>
 class UnDirectedGraph : public Graph<TV, TE>{
 private:
     ///TODO: No sé qué quieran agregar al grafo
+    char* name;
+    int airportID;
+    //vector<int> destinos;
 
 public:
     UnDirectedGraph();

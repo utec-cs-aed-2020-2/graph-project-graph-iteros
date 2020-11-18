@@ -1,6 +1,8 @@
 #include "Graph/Algorithms/Kruskal.h"
 #include "Graph/Algorithms/Prim.h"
 #include "Tester/tester.h"
+#include "Parser/parser.h"
+#include <iostream>
 
 using namespace std;
 
@@ -8,7 +10,7 @@ int main(int argc, char *argv[]) {
     std::cout << "================================================" << std::endl;
     std::cout << "MENU GRAPH TESTER" << std::endl;
     std::cout << "================================================" << std::endl;
-    
+
     Tester::executeExamples();
     Tester::executeParser();
 
@@ -94,5 +96,13 @@ int main(int argc, char *argv[]) {
     }
 
      */
+    std::cout << "================================================" << std::endl;
+    std::cout << "PARSER" << std::endl;
+    std::cout << "================================================" << std::endl;
+
+
+    Parser parser;
+    parser.readJSON();
+    parser.printJSON();
     return EXIT_SUCCESS;
 }

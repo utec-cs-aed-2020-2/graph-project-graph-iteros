@@ -7,7 +7,9 @@ template<typename TV, typename TE>
 class DirectedGraph : public Graph<TV, TE>{
 private:
     ///TODO: No sé qué quieran agregar al grafo
-
+    char* name;
+    int airportID;
+    vector<int> destinos;
 public:
     DirectedGraph();
 

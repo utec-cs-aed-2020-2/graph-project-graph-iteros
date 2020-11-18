@@ -1,0 +1,52 @@
+[
+    {
+        "City": "Juliaca",
+        "DBTZ": "U",
+        "Name": "Juliaca",
+        "Country": "Peru",
+        "IATA/FAA": "JUL",
+        "Longitude": "-70.158169",
+        "ICAO": "SPJL",
+        "Airport ID": "2792",
+        "Latitude": "-15.467103",
+        "Timezone": "12552",
+        "DST": "-5",
+        "destinations": [
+            "2802",
+            "2812",
+            "2789"
+        ]
+    },
+    {
+        "City": "Tumbes",
+        "DBTZ": "U",
+        "Name": "Pedro Canga",
+        "Country": "Peru",
+        "IATA/FAA": "TBP",
+        "Longitude": "-80.381356",
+        "ICAO": "SPME",
+        "Airport ID": "2796",
+        "Latitude": "-3.552528",
+        "Timezone": "115",
+        "DST": "-5",
+        "destinations": [
+            "2789"
+        ]
+    },
+    {
+        "City": "Huanuco",
+        "DBTZ": "U",
+        "Name": "Alferez Fap David Figueroa Fernandini Airport",
+        "Country": "Peru",
+        "IATA/FAA": "HUU",
+        "Longitude": "-76.204797",
+        "ICAO": "SPNC",
+        "Airport ID": "6067",
+        "Latitude": "-9.878811",
+        "Timezone": "6070",
+        "DST": "-5",
+        "destinations": [
+            "2789"
+        ]
+    }
+]
