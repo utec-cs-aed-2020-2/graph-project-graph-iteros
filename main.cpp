@@ -43,18 +43,16 @@ int main(int argc, char *argv[]) {
     Kruskal<char, int> kruskal(&graph);
     UnDirectedGraph<char, int> result1 = kruskal.apply();
 
-    Prim<char, int> prim(&graph, "1");
+    Prim<char, int> prim(&graph, "3");
     UnDirectedGraph<char, int> result2 = prim.apply();
 
-    //result1.display();
-    //cout << endl;
+    result1.display();
+    cout << endl;
     result2.display();
     cout << endl;
 
     /*
      * TODO:
-     * - isConnected, isStronglyConnected on DirectedGraph
-     * - Prim
      * - Parser
      * - Tester
      */
