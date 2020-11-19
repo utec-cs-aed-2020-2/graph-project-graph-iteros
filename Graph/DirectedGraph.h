@@ -13,7 +13,7 @@ private:
 public:
     DirectedGraph();
 
-    bool insertVertex(string id, TV vertex);
+    bool insertVertex(string id, TV vertex, double latitud = 0, double longitud = 0);
 
     bool createEdge(string id1, string id2, TE w);
     bool deleteVertex(string id);
@@ -30,14 +30,16 @@ public:
     void displayVertex(string id);
     bool findById(string id);
     void display();
+
+    pair<double,double> getPositionById(string id);
 };
 
 template<typename TV, typename TE>
 DirectedGraph<TV, TE>::DirectedGraph() {this->edges = 0;}
 
 template<typename TV, typename TE>
-bool DirectedGraph<TV, TE>::insertVertex(string id, TV vertex) {
-    Vertex<TV, TE>* v = new Vertex<TV, TE>(vertex, id);
+bool DirectedGraph<TV, TE>::insertVertex(string id, TV vertex, double latitud, double longitud) {
+    Vertex<TV, TE>* v = new Vertex<TV, TE>(vertex, id, latitud, longitud);
     this->vertexes[id] = v;
 }
 
@@ -188,6 +190,13 @@ template<typename TV, typename TE>
 bool DirectedGraph<TV, TE>::findById(string id) {
     if (this->vertexes.find(id) == this->vertexes.end()) return false;
     return true;
+}
+
+template<typename TV, typename TE>
+pair<double,double> DirectedGraph<TV, TE>::getPositionById(string id) {
+    if (this->vertexes.find(id) == this->vertexes.end()) return make_pair(0,0);
+    //std::cout <<this-> vertexes[id]->latitud<<" "<<this-> vertexes[id]->longitud<<std::endl;
+    return make_pair(this-> vertexes[id]->latitud,this-> vertexes[id]->longitud);
 }
 
 template<typename TV, typename TE>

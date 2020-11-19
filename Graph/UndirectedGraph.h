@@ -22,7 +22,7 @@ private:
 public:
     UnDirectedGraph();
 
-    bool insertVertex(string id, TV vertex);
+    bool insertVertex(string id, TV vertex, double latitud = 0, double longitud= 0);
 
     bool createEdge(string id1, string id2, TE w);
     bool deleteVertex(string id) override;
@@ -45,15 +45,17 @@ public:
     bool isCyclic();
     bool isCyclicUtil(string id, pair<string, bool> visited[], string parent);
     bool edgeExists(string id1, string id2);
+
+    pair<double,double> getPositionById(string id);
 };
 
 template<typename TV, typename TE>
 UnDirectedGraph<TV, TE>::UnDirectedGraph() {this->edges = 0;}
 
 template<typename TV, typename TE>
-bool UnDirectedGraph<TV, TE>::insertVertex(string id, TV vertex) {
+bool UnDirectedGraph<TV, TE>::insertVertex(string id, TV vertex, double latitud, double longitud) {
     if (!findById(id)) {
-        Vertex<TV, TE> *v = new Vertex<TV, TE>(vertex, id);
+        Vertex<TV, TE> *v = new Vertex<TV, TE>(vertex, id, latitud, longitud);
         this->vertexes[id] = v;
         return true;
     }
@@ -210,6 +212,13 @@ template<typename TV, typename TE>
 bool UnDirectedGraph<TV, TE>::findById(string id) {
     if (this->vertexes.find(id) == this->vertexes.end()) return false;
     return true;
+}
+
+template<typename TV, typename TE>
+pair<double,double> UnDirectedGraph<TV, TE>::getPositionById(string id) {
+    if (this->vertexes.find(id) == this->vertexes.end()) return make_pair(0,0);
+    //std::cout <<this-> vertexes[id]->latitud<<" "<<this-> vertexes[id]->longitud<<std::endl;
+    return make_pair(this-> vertexes[id]->latitud,this-> vertexes[id]->longitud);
 }
 
 template<typename TV, typename TE>

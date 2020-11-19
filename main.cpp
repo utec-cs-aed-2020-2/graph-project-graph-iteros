@@ -103,6 +103,14 @@ int main(int argc, char *argv[]) {
 
     Parser parser;
     parser.readJSON();
-    parser.printJSON();
+   // parser.printJSON();
+    DirectedGraph<string, double> result3;
+    parser.dGraphMake(result3);
+    cout<<endl;
+    result3.display();
+    UnDirectedGraph<string, double> result4;
+    parser.uGraphMake(result4);
+    cout<<endl;
+    result4.display();
     return EXIT_SUCCESS;
 }

@@ -35,12 +35,16 @@ struct Edge {
 
 template<typename TV, typename TE>
 struct Vertex {
-    TV data;
-    string key;
+    TV data;  //nombre
+    double latitud;
+    double longitud;
+    string key; //ID
     std::list<Edge<TV, TE>*> edges;
-    Vertex(TV data, string key) {
+    Vertex(TV data, string key, double latitud = 0, double longitud = 0) {
         this->data = data;
         this->key = key;
+        this->latitud = latitud;
+        this->longitud = longitud;
     }
 };
 
@@ -56,7 +60,7 @@ protected:
     friend struct Prim<TV, TE>;
     
 public:
-    virtual bool insertVertex(string id, TV vertex) = 0;
+    virtual bool insertVertex(string id, TV vertex, double latitud = 0, double longitud = 0) = 0;
     virtual bool createEdge(string id1, string id2, TE w) = 0;
 
     virtual bool deleteVertex(string id) = 0;
@@ -72,6 +76,8 @@ public:
     virtual void displayVertex(string id)= 0;
     virtual bool findById(string id) = 0;
     virtual void display() = 0;
+
+    virtual pair<double,double> getPositionById(string id)=0;
 };
 
 #endif

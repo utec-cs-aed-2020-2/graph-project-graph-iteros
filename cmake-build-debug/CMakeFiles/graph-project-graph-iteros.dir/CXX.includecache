@@ -51,6 +51,8 @@ stdexcept
 /home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/trying/graph-project-graph-iteros/rapidjson/stringbuffer.h
 fstream
 -
+math.h
+-
 
 /home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/trying/graph-project-graph-iteros/Tester/tester.h
 ../Parser/parser.h
