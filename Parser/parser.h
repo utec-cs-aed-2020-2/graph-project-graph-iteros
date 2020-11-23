@@ -30,7 +30,7 @@ void Parser::clear() {
 }
 
 void Parser::readJSON() {
-    std::ifstream is("../Parser/Data/pe.json",std::ifstream::binary);
+    std::ifstream is("../Parser/Data/partry.json",std::ifstream::binary);
     if (is) {
         // get length of file:
         is.seekg(0, is.end);

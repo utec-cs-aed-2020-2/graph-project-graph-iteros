@@ -55,20 +55,20 @@ math.h
 -
 
 /home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/trying/graph-project-graph-iteros/Tester/tester.h
+../Graph/Algorithms/Kruskal.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/trying/graph-project-graph-iteros/Graph/Algorithms/Kruskal.h
+../Graph/Algorithms/Prim.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/trying/graph-project-graph-iteros/Graph/Algorithms/Prim.h
 ../Parser/parser.h
 /home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/trying/graph-project-graph-iteros/Parser/parser.h
-
-/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/trying/graph-project-graph-iteros/main.cpp
-Graph/Algorithms/Kruskal.h
-/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/trying/graph-project-graph-iteros/Graph/Algorithms/Kruskal.h
-Graph/Algorithms/Prim.h
-/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/trying/graph-project-graph-iteros/Graph/Algorithms/Prim.h
-Tester/tester.h
-/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/trying/graph-project-graph-iteros/Tester/tester.h
-Parser/parser.h
-/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/trying/graph-project-graph-iteros/Parser/parser.h
+string
+-
 iostream
 -
+
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/trying/graph-project-graph-iteros/main.cpp
+Tester/tester.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/trying/graph-project-graph-iteros/Tester/tester.h
 
 /home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/trying/graph-project-graph-iteros/rapidjson/allocators.h
 rapidjson.h
