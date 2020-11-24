@@ -30,7 +30,7 @@ void Parser::clear() {
 }
 
 void Parser::readJSON() {
-    std::ifstream is("../Parser/Data/partry.json",std::ifstream::binary);
+    std::ifstream is("../Parser/Data/pe.json",std::ifstream::binary);
     if (is) {
         // get length of file:
         is.seekg(0, is.end);
@@ -57,13 +57,12 @@ void Parser::printJSON(){
 
 
 void Parser::uGraphMake(UnDirectedGraph<string, double> &tempGraph) {
-    //lo mismo ? :'0
+    //lo mismo :'0
     for(auto &x: d.GetArray()) {
         tempGraph.insertVertex(x["Airport ID"].GetString(), x["Name"].GetString(),
                                atof(x["Latitude"].GetString()), atof(x["Longitude"].GetString())
         );
     }
-
     for(auto &x: d.GetArray()){
         string xID = x["Airport ID"].GetString();
         pair<double, double> posX = tempGraph.getPositionById(xID);  //par de latitud y longitud de xID
@@ -110,7 +109,7 @@ double degToRad(double deg){
     return deg * (M_PI/180);
 }
 //distancia entre dos puntos, usando latitud y longitud (posX[latitud,longitud]) en KMs
-// enlace: https://en.wikipedia.org/wiki/Haversine_formula
+//enlace: https://en.wikipedia.org/wiki/Haversine_formula
 double Parser::getDistance(pair<double, double> posX, pair<double, double> posY){
     double R = 6371; //radio de la Tierra
     double dLat = degToRad(posX.first - posY.first);

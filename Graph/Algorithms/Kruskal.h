@@ -35,6 +35,7 @@ UnDirectedGraph<TV, TE> Kruskal<TV, TE>::apply() {
         }
     }
 
+
     return g;
 }
 

@@ -27,9 +27,9 @@ struct Prim {
 template<typename TV, typename TE>
 Prim<TV, TE>::Prim(UnDirectedGraph<TV, TE> *graph, const string& start) {
     if (!graph->findById(start)) throw invalid_argument("vertex is not on graph");
-
     this->graph = graph;
     this->start = start;
+
 }
 
 template<typename TV, typename TE>

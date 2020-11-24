@@ -7,6 +7,7 @@
 #include <string>
 #include <iostream>
 
+using namespace rapidjson;
 struct Tester {
     static void executeExamples();
     static void executeParser();
@@ -54,24 +55,55 @@ void Tester::executeExamples() {
 }
 
 void Tester::executeParser() {
-    Parser parser;
+    Parser parser,parser2;
     parser.readJSON();
+    parser2.readJSON();
     //parser.printJSON();
-    UnDirectedGraph<string, double> u1graph;
-    parser.uGraphMake(u1graph);
+    DirectedGraph<string, double> d1graph;
+    parser.dGraphMake(d1graph);
 
-    Kruskal<string, double> dkruskal(&u1graph);
-    UnDirectedGraph<string, double> result3 = dkruskal.apply();
+    cout<<"Probando Métodos:"<<endl;
+    // probando operador ()
+    auto A = d1graph("2808","2812");
+    cout<<"Operador (): "<<A<<endl;
+
+    // probando densidad
+    float D = d1graph.density();
+    cout<<"Densidad: "<<D<<endl;
+
+
+    // probando isDense, isConnected, empty
+    bool dense = d1graph.isDense();
+    if(dense) {cout << "Dense!" << endl;} else {cout << "No Dense!" << endl;}
+    bool connected = d1graph.isConnected();
+    if(connected) {cout << "Connected!" << endl;} else {cout << "No Connected!" << endl;}
+    bool stronglyConnected = d1graph.isStronglyConnected();
+    if(stronglyConnected) {cout << "Is Strongly Connected!" << endl;} else {cout << "No Connected!" << endl;}
+    bool empty = d1graph.empty();
+    if(empty) {cout << "Empty !" << endl;} else {cout << "No Empty!" << endl;}
+
+    cout<<endl;cout<<endl;
+    cout<<"Probando Kruskal: "<<endl;
+    UnDirectedGraph<string, double> u1graph2;
+    parser2.uGraphMake(u1graph2);
+
+    Kruskal<string, double> kruskal(&u1graph2);
+    UnDirectedGraph<string, double> result3 = kruskal.apply();
+
+    d1graph.clear();
+    d1graph.display();
+
     cout<<endl;
     result3.display();
 
-    UnDirectedGraph<string, double> u2graph;
-    parser.uGraphMake(u2graph);
-
-    Prim<string, double> prim2(&u2graph, "2796");
-    UnDirectedGraph<string, double> result4 = prim2.apply();
-    cout<<endl;
-    result4.display();
+//    UnDirectedGraph<string, double> u2graph;
+//    cout << endl <<"whatever" << endl;
+//    parser.uGraphMake(u2graph);
+//
+//    Prim<string, double> prim(&u2graph, "2796");
+//    UnDirectedGraph<string, double> result4 = prim2.apply();
+//    cout<<endl;
+//    result4.display();
 }
 
 #endif //GRAPH_PROJECT_GRAPH_ITEROS_TESTER_H
