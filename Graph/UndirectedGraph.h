@@ -2,6 +2,7 @@
 #define UNDIRECTEDGRAPH_H
 
 #include "graph.h"
+#include <limits>
 
 template<typename TV, typename TE>
 struct compWeight {
@@ -28,7 +29,7 @@ public:
     bool deleteVertex(string id) override;
     bool deleteEdge(string start, string end) override;
 
-    TE &operator()(string start, string end);
+    TE operator()(string start, string end);
     float density();
     bool isDense(float threshold = 0.5);
     bool isConnected();
@@ -39,6 +40,7 @@ public:
     void displayVertex(string id);
     bool findById(string id);
     void display();
+    void display2();
 
     priority_queue<Edge<TV, TE>*, vector<Edge<TV, TE>*>, compWeight<TV, TE>> getOrderedEdges();
     int getSize();
@@ -47,6 +49,10 @@ public:
     bool edgeExists(string id1, string id2);
 
     pair<double,double> getPositionById(string id);
+
+    UnDirectedGraph<TV, TE> execKruskal();
+    UnDirectedGraph<TV, TE> exePrim(string start);
+    bool areConnected(string id1, string id2);
 };
 
 template<typename TV, typename TE>
@@ -68,7 +74,7 @@ bool UnDirectedGraph<TV, TE>::createEdge(string id1, string id2, TE w) {
     if (findById(id1) && findById(id2)) {
         for (auto it : this->vertexes[id1]->edges) {
             if (it->vertexes[1]->data == this->vertexes[id2]->data)
-                // Si esto pasa significa que ya existe una arista de id1 -> id2
+                // Si esto pasa significa que ya existe una arista de id1 <-> id2
                 return false;
         }
 
@@ -139,10 +145,11 @@ bool UnDirectedGraph<TV, TE>::deleteEdge(string start, string end) {
 }
 
 template<typename TV, typename TE>
-TE& UnDirectedGraph<TV, TE>::operator()(string start, string end) {
+TE UnDirectedGraph<TV, TE>::operator()(string start, string end) {
     for (auto i : this->vertexes[start]->edges) {
         if (i->vertexes[1] == this->vertexes[end]) return i->weight;
     }
+    return numeric_limits<TE>::min();
 }
 
 template<typename TV, typename TE>
@@ -216,7 +223,8 @@ bool UnDirectedGraph<TV, TE>::findById(string id) {
 
 template<typename TV, typename TE>
 pair<double,double> UnDirectedGraph<TV, TE>::getPositionById(string id) {
-    if (this->vertexes.find(id) == this->vertexes.end()) return make_pair(0,0);
+    if (this->vertexes.find(id) == this->vertexes.end())
+        return make_pair(0,0);
     //std::cout <<this-> vertexes[id]->latitud<<" "<<this-> vertexes[id]->longitud<<std::endl;
     return make_pair(this-> vertexes[id]->latitud,this-> vertexes[id]->longitud);
 }
@@ -306,5 +314,143 @@ bool UnDirectedGraph<TV, TE>::edgeExists(string id1, string id2) {
     }
     return false;
 }
+
+template<typename TV, typename TE>
+void UnDirectedGraph<TV, TE>::display2() {
+    // Recorrer Vertices
+    for (auto it : this->vertexes) {
+        std::cout << it.first << " :\n";
+        // Recorrer sus vecinos
+        for (auto it2 : it.second->edges) {
+            std::cout << "\t" << it2->vertexes[0]->data;
+            std::cout << " <-" << it2->weight << "-> ";
+            std::cout << it2->vertexes[1]->data << "(" << it2->vertexes[1]->key << ")" << "\n";
+        }
+    }
+}
+
+template<typename TV, typename TE>
+bool operator<(const Edge<TV, TE>& edge1, const Edge<TV, TE>& edge2) {
+    return edge1.weight > edge2.weight;
+}
+
+
+template<typename TV, typename TE>
+UnDirectedGraph<TV, TE> UnDirectedGraph<TV, TE>::execKruskal() {
+    std::priority_queue<Edge<TV, TE>*, std::vector<Edge<TV, TE>*>, compWeight<TV, TE>> pq;
+    std::unordered_map<TV, std::pair<std::unordered_map<TV, int>, string>> visited;    // Para evitar que las aristas se marquen doble (A<->B == B<->A)
+    //std::unordered_map<TV, int> ids;                                              // Para verificar las conexiones y agregar las aristas
+    // Se borró el map de ids porque se usa el pair del map visited para que el second sea el id
+    UnDirectedGraph<TV, TE> g;                                                      // Grafo para retornar
+
+    for (auto it1 : this->vertexes) {
+        g.insertVertex(it1.first , (it1.second)->data);
+        //ids[it1.second->data] = it1.first;
+        visited[it1.second->data].second = it1.first;
+        for (auto it2 : (it1.second)->edges) {
+            if (visited[it1.second->data].first.count(it2->vertexes[1]->data) == 0 && visited[it2->vertexes[1]->data].first.count(it1.second->data) == 0) {
+                pq.push(it2);
+                (visited[it1.second->data].first)[it2->vertexes[1]->data] = 1;
+                (visited[it2->vertexes[1]->data].first)[it1.second->data] = 1;
+            }
+        }
+    }
+
+
+    while (!pq.empty()) {
+        string id1 = visited[pq.top()->vertexes[0]->data].second;
+        string id2 = visited[pq.top()->vertexes[1]->data].second;
+        if (!g.areConnected(id1, id2)) {
+            g.createEdge(id1, id2, pq.top()->weight);
+        }
+        pq.pop();
+    }
+
+    return g;
+}
+
+template <typename TV, typename TE>
+bool UnDirectedGraph<TV, TE>::areConnected(string id1, string id2) {
+    if (this->edges == 0 || this->vertexes.count(id1)==0 || this->vertexes.count(id2)==0)
+        return false;
+
+    auto temp = this->vertexes[id2]->data;
+    std::queue<Vertex<TV, TE>*> q;
+    std::unordered_map<TV, bool> visited;
+    for (auto it : this->vertexes)
+        visited[(it.second)->data] = false;
+
+    visited[this->vertexes[id1]->data] = true;
+    q.push(this->vertexes[id1]);
+    auto u = q.front();
+    q.push(u);
+    while (!q.empty()) {
+        u = q.front();
+        q.pop();
+        for (auto it : u->edges) {
+            if ((it->vertexes)[1]->data == temp)
+                return true;
+            if (visited[(it->vertexes)[1]->data] == false) {
+                q.push((it->vertexes)[1]);
+                visited[(it->vertexes)[1]->data] = true;
+            }
+        }
+    }
+
+    return false;
+}
+
+template <typename TV, typename TE>
+using EPair = pair<Edge<TV, TE>*, Vertex<TV, TE>*>;
+
+template<typename TV, typename TE>
+struct compPairs{
+    bool operator()(const EPair<TV, TE> p1, const EPair<TV, TE> p2) const {
+        return p1.first->weight > p2.first->weight;
+    }
+};
+
+template<typename TV, typename TE>
+UnDirectedGraph<TV, TE> UnDirectedGraph<TV, TE>::exePrim(string start) {
+    UnDirectedGraph<TV, TE> g;
+    priority_queue<EPair<TV, TE>, std::vector<EPair<TV, TE>>, compPairs<TV, TE>> pq;
+    unordered_map<TV, unordered_map<TV, bool>> visited;
+
+
+    g.insertVertex(this->vertexes[start]->key, this->vertexes[start]->data, this->vertexes[start]->latitud, this->vertexes[start]->longitud);
+    pq.push(make_pair(nullptr, this->vertexes[start]));
+
+    for (auto x : this->vertexes) {
+        for (auto y : x.second->edges) {
+            if (y->vertexes[1]->key == this->vertexes[start]->key)
+                visited[y->vertexes[1]->data][this->vertexes[start]->data] = true;
+        }
+    }
+
+    int i=1;
+    while (!pq.empty()) {
+        auto u = pq.top();
+        pq.pop();
+        for (auto x : u.second->edges) {
+            if (visited[u.second->data].count(x->vertexes[1]->data) == 0 && visited[x->vertexes[1]->data].count(u.second->data) == 0) {
+                pq.push(make_pair(x, x->vertexes[1]));
+                visited[u.second->data][x->vertexes[1]->data] = true;
+                visited[x->vertexes[1]->data][u.second->data] = true;
+                // g.insertVertex(x->vertexes[1]->key, x->vertexes[1]->data, x->vertexes[1]->latitud, x->vertexes[1]->longitud);
+                // cout << "vertex " << i++ << ": " << x->vertexes[0]->data << " <- "<< x->weight << " -> " << x->vertexes[1]->data << "\n";
+            }
+        }
+
+        if (!pq.empty() && !g.areConnected(pq.top().first->vertexes[0]->key, pq.top().first->vertexes[1]->key)) {
+            auto v = pq.top();
+            g.insertVertex(v.second->key, v.second->data, v.second->latitud, v.second->longitud);
+            g.createEdge(v.first->vertexes[0]->key, v.first->vertexes[1]->key, v.first->weight);
+            cout << "vertex " << i++ << ": " << v.first->vertexes[0]->key << " <- "<< v.first->weight << " -> " << v.first->vertexes[1]->key << "\n";
+        }
+    }
+
+    return g;
+}
+
 
 #endif
