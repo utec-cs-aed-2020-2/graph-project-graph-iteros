@@ -27,13 +27,14 @@ struct Prim {
 template<typename TV, typename TE>
 Prim<TV, TE>::Prim(UnDirectedGraph<TV, TE> *graph, const string& start) {
     if (!graph->findById(start)) throw invalid_argument("vertex is not on graph");
+
     this->graph = graph;
     this->start = start;
-
 }
 
 template<typename TV, typename TE>
 UnDirectedGraph<TV, TE> Prim<TV, TE>::apply() {
+    /*
     UnDirectedGraph<TV, TE> g;
     vector<pair<string, TE>> distance;
     vector<pair<string, string>> parent;
@@ -50,9 +51,9 @@ UnDirectedGraph<TV, TE> Prim<TV, TE>::apply() {
         }
         parent.push_back(make_pair(i.first, "")); // parent = NULL
     }
-
-    sort(vertexes.begin(), vertexes.end(), compWeightP<TE>);
-
+    cout << "aqui\n";
+    sort(vertexes.begin(), vertexes.end(), &compWeightP<TE>);
+    cout << "aqui2\n";
     while (!vertexes.empty()) {
         pair<string, TE> elem = vertexes[vertexes.size()-1];
         Vertex<TV, TE>* vertex = graph->vertexes[elem.first];
@@ -104,6 +105,45 @@ UnDirectedGraph<TV, TE> Prim<TV, TE>::apply() {
         string id2 = parent[i].second;
         TE weight = distance[i].second;
         g.createEdge(id1, id2, weight);
+    }
+
+    return g;
+     */
+    UnDirectedGraph<TV, TE> g;
+    priority_queue<EPair<TV, TE>, std::vector<EPair<TV, TE>>, compPairs<TV, TE>> pq;
+    unordered_map<TV, unordered_map<TV, bool>> visited;
+
+
+    g.insertVertex(graph->vertexes[start]->key, graph->vertexes[start]->data, graph->vertexes[start]->latitud, graph->vertexes[start]->longitud);
+    pq.push(make_pair(nullptr, graph->vertexes[start]));
+
+    for (auto x : graph->vertexes) {
+        for (auto y : x.second->edges) {
+            if (y->vertexes[1]->key == graph->vertexes[start]->key)
+                visited[y->vertexes[1]->data][graph->vertexes[start]->data] = true;
+        }
+    }
+
+    int i=1;
+    while (!pq.empty()) {
+        auto u = pq.top();
+        pq.pop();
+        for (auto x : u.second->edges) {
+            if (visited[u.second->data].count(x->vertexes[1]->data) == 0 && visited[x->vertexes[1]->data].count(u.second->data) == 0) {
+                pq.push(make_pair(x, x->vertexes[1]));
+                visited[u.second->data][x->vertexes[1]->data] = true;
+                visited[x->vertexes[1]->data][u.second->data] = true;
+                // g.insertVertex(x->vertexes[1]->key, x->vertexes[1]->data, x->vertexes[1]->latitud, x->vertexes[1]->longitud);
+                // cout << "vertex " << i++ << ": " << x->vertexes[0]->data << " <- "<< x->weight << " -> " << x->vertexes[1]->data << "\n";
+            }
+        }
+
+        if (!pq.empty() && !g.areConnected(pq.top().first->vertexes[0]->key, pq.top().first->vertexes[1]->key)) {
+            auto v = pq.top();
+            g.insertVertex(v.second->key, v.second->data, v.second->latitud, v.second->longitud);
+            g.createEdge(v.first->vertexes[0]->key, v.first->vertexes[1]->key, v.first->weight);
+            cout << "vertex " << i++ << ": " << v.first->vertexes[0]->key << " <- "<< v.first->weight << " -> " << v.first->vertexes[1]->key << "\n";
+        }
     }
 
     return g;
