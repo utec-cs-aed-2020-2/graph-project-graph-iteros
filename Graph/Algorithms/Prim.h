@@ -142,7 +142,7 @@ UnDirectedGraph<TV, TE> Prim<TV, TE>::apply() {
             auto v = pq.top();
             g.insertVertex(v.second->key, v.second->data, v.second->latitud, v.second->longitud);
             g.createEdge(v.first->vertexes[0]->key, v.first->vertexes[1]->key, v.first->weight);
-            cout << "vertex " << i++ << ": " << v.first->vertexes[0]->key << " <- "<< v.first->weight << " -> " << v.first->vertexes[1]->key << "\n";
+            //cout << "vertex " << i++ << ": " << v.first->vertexes[0]->key << " <- "<< v.first->weight << " -> " << v.first->vertexes[1]->key << "\n";
         }
     }
 

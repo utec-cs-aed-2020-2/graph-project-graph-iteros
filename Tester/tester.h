@@ -96,14 +96,14 @@ void Tester::executeParser() {
     cout<<endl;
     result3.display();
 
-//    UnDirectedGraph<string, double> u2graph;
-//    cout << endl <<"whatever" << endl;
-//    parser.uGraphMake(u2graph);
-//
-//    Prim<string, double> prim(&u2graph, "2796");
-//    UnDirectedGraph<string, double> result4 = prim2.apply();
-//    cout<<endl;
-//    result4.display();
+    UnDirectedGraph<string, double> u2graph;
+    parser.uGraphMake(u2graph);
+
+    cout << endl <<"Probando Prim" << endl;
+    Prim<string, double> prim(&u2graph, "2796");
+    UnDirectedGraph<string, double> result4 = prim.apply();
+    cout<<endl;
+    result4.display();
 }
 
 #endif //GRAPH_PROJECT_GRAPH_ITEROS_TESTER_H

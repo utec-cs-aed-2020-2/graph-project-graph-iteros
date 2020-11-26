@@ -88,6 +88,7 @@ bool DirectedGraph<TV, TE>::deleteEdge(string start, string end) {
 
 template<typename TV, typename TE>
 TE DirectedGraph<TV, TE>::operator()(string start, string end) {
+    if(this->vertexes.count(start) == 0 || this->vertexes.count(end) == 0) return numeric_limits<TE>::min();
     for (auto i : this->vertexes[start]->edges) {
         if (i->vertexes[1] == this->vertexes[end]) return i->weight;
     }

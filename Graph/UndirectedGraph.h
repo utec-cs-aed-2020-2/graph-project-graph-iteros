@@ -146,6 +146,7 @@ bool UnDirectedGraph<TV, TE>::deleteEdge(string start, string end) {
 
 template<typename TV, typename TE>
 TE UnDirectedGraph<TV, TE>::operator()(string start, string end) {
+    if(this->vertexes.count(start) == 0 || this->vertexes.count(end) == 0) return numeric_limits<TE>::min();
     for (auto i : this->vertexes[start]->edges) {
         if (i->vertexes[1] == this->vertexes[end]) return i->weight;
     }
@@ -189,10 +190,8 @@ bool UnDirectedGraph<TV, TE>::isConnected() {
         }
     }
 
-    if (std::all_of(visited.begin(), visited.end(), [](auto x){return x.second;}))
-        return true;
+    return std::all_of(visited.begin(), visited.end(), [](auto x) { return x.second; });
 
-    return false;
 }
 
 template<typename TV, typename TE>
@@ -445,7 +444,7 @@ UnDirectedGraph<TV, TE> UnDirectedGraph<TV, TE>::exePrim(string start) {
             auto v = pq.top();
             g.insertVertex(v.second->key, v.second->data, v.second->latitud, v.second->longitud);
             g.createEdge(v.first->vertexes[0]->key, v.first->vertexes[1]->key, v.first->weight);
-            cout << "vertex " << i++ << ": " << v.first->vertexes[0]->key << " <- "<< v.first->weight << " -> " << v.first->vertexes[1]->key << "\n";
+            //cout << "vertex " << i++ << ": " << v.first->vertexes[0]->key << " <- "<< v.first->weight << " -> " << v.first->vertexes[1]->key << "\n";
         }
     }
 
