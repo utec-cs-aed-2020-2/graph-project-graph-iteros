@@ -118,8 +118,8 @@ double Parser::getDistance(pair<double, double> posX, pair<double, double> posY)
             cos(degToRad(posX.first)) * cos(degToRad(posY.first)) *
             sin(dLon/2) * sin(dLon/2);
     double c = 2 * atan2(sqrt(a), sqrt(1-a));
-    double d = R * c; //Distancia en KMs
-    return d;
+    double dist = R * c; //Distancia en KMs
+    return dist;
 }
 
 #endif //GRAPH_PROJECT_GRAPH_ITEROS_PARSER_H

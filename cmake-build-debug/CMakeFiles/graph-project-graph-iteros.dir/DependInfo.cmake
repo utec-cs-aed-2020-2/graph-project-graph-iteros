@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/trying/graph-project-graph-iteros/main.cpp" "/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/trying/graph-project-graph-iteros/cmake-build-debug/CMakeFiles/graph-project-graph-iteros.dir/main.cpp.o"
+  "C:/Users/Jorge/Desktop/graph-project-graph-iteros/main.cpp" "C:/Users/Jorge/Desktop/graph-project-graph-iteros/cmake-build-debug/CMakeFiles/graph-project-graph-iteros.dir/main.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

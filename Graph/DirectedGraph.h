@@ -40,7 +40,7 @@ DirectedGraph<TV, TE>::DirectedGraph() {this->edges = 0;}
 
 template<typename TV, typename TE>
 bool DirectedGraph<TV, TE>::insertVertex(string id, TV vertex, double latitud, double longitud) {
-    if ( this->vertexes.count(id) ) {
+    if ( this->vertexes.count(id)==0 ) {
         Vertex<TV, TE>* v = new Vertex<TV, TE>(vertex, id, latitud, longitud);
         this->vertexes[id] = v;
         return true;
