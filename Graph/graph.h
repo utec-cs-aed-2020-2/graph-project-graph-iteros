@@ -52,12 +52,16 @@ template<typename TV, typename TE>
 struct Prim;
 
 template<typename TV, typename TE>
+struct Kruskal;
+
+template<typename TV, typename TE>
 class Graph{
 protected:
     std::unordered_map<string, Vertex<TV, TE>*>  vertexes;
     unsigned int edges;
 
     friend struct Prim<TV, TE>;
+    friend struct Kruskal<TV, TE>;
     
 public:
     virtual bool insertVertex(string id, TV vertex, double latitud = 0, double longitud = 0) = 0;
@@ -65,7 +69,7 @@ public:
 
     virtual bool deleteVertex(string id) = 0;
     virtual bool deleteEdge(string start, string end) = 0;
-    virtual TE &operator()(string start, string end)= 0;
+    virtual TE operator()(string start, string end)= 0;
     virtual float density() = 0;
     virtual bool isDense(float threshold = 0.5) = 0;
     virtual bool isConnected()= 0;
