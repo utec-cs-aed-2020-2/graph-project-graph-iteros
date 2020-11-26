@@ -19,7 +19,7 @@ public:
     bool deleteVertex(string id);
     bool deleteEdge(string start, string end);
 
-    TE &operator()(string start, string end);
+    TE operator()(string start, string end);
     float density();
     bool isDense(float threshold = 0.5);
     bool isConnected();
@@ -30,6 +30,7 @@ public:
     void displayVertex(string id);
     bool findById(string id);
     void display();
+    void display2();
 
     pair<double,double> getPositionById(string id);
 };
@@ -39,15 +40,23 @@ DirectedGraph<TV, TE>::DirectedGraph() {this->edges = 0;}
 
 template<typename TV, typename TE>
 bool DirectedGraph<TV, TE>::insertVertex(string id, TV vertex, double latitud, double longitud) {
-    Vertex<TV, TE>* v = new Vertex<TV, TE>(vertex, id, latitud, longitud);
-    this->vertexes[id] = v;
+    if ( this->vertexes.count(id) ) {
+        Vertex<TV, TE>* v = new Vertex<TV, TE>(vertex, id, latitud, longitud);
+        this->vertexes[id] = v;
+        return true;
+    }
+    return false;
 }
 
 template<typename TV, typename TE>
 bool DirectedGraph<TV, TE>::createEdge(string id1, string id2, TE w) {
-    Edge<TV, TE>* e1 = new Edge<TV, TE>(this->vertexes[id1], this->vertexes[id2], w);
-    this->vertexes[id1]->edges.push_back(e1);
-    this->edges++;
+    if (this->vertexes.count(id1) && this->vertexes.count(id2)) {
+        Edge<TV, TE>* e1 = new Edge<TV, TE>(this->vertexes[id1], this->vertexes[id2], w);
+        this->vertexes[id1]->edges.push_back(e1);
+        this->edges++;
+        return true;
+    }
+    return false;
 }
 
 template<typename TV, typename TE>
@@ -78,10 +87,11 @@ bool DirectedGraph<TV, TE>::deleteEdge(string start, string end) {
 }
 
 template<typename TV, typename TE>
-TE& DirectedGraph<TV, TE>::operator()(string start, string end) {
+TE DirectedGraph<TV, TE>::operator()(string start, string end) {
     for (auto i : this->vertexes[start]->edges) {
         if (i->vertexes[1] == this->vertexes[end]) return i->weight;
     }
+    return numeric_limits<TE>::min();
 }
 
 template<typename TV, typename TE>
@@ -210,5 +220,18 @@ void DirectedGraph<TV, TE>::display() {
     }
 }
 
+template<typename TV, typename TE>
+void DirectedGraph<TV, TE>::display2() {
+    // Recorrer Vertices
+    for (auto it : this->vertexes) {
+        std::cout << it.first << " :\n";
+        // Recorrer sus vecinos
+        for (auto it2 : it.second->edges) {
+            std::cout << "\t" << it2->vertexes[0]->data;
+            std::cout << " --" << it2->weight << "-> ";
+            std::cout << it2->vertexes[1]->data << "\n";
+        }
+    }
+}
 
 #endif
