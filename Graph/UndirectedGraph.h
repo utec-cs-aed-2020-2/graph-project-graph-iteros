@@ -56,7 +56,7 @@ public:
     UnDirectedGraph<TV, TE> exePrim(string start);
     bool areConnected(string id1, string id2);
 
-    UnDirectedGraph<TV, TE> ExeDijkstra(string src);
+    unordered_map<string, TE> ExeDijkstra(string src);
 };
 
 template<typename TV, typename TE>
@@ -457,9 +457,9 @@ UnDirectedGraph<TV, TE> UnDirectedGraph<TV, TE>::exePrim(string start) {
 
 
 template<typename TV, typename TE>
-UnDirectedGraph<TV, TE> UnDirectedGraph<TV, TE>::ExeDijkstra(string src) {
+unordered_map<string, TE> UnDirectedGraph<TV, TE>::ExeDijkstra(string src) {
     /// TODO: Falta crear la tabla de parents y el grafo (si es necesario)
-    UnDirectedGraph<TV, TE> g;
+    // UnDirectedGraph<TV, TE> g;
     priority_queue<EPair<TV, TE>, std::vector<EPair<TV, TE>>, compPairs<TV, TE>> pq;
     unordered_map<string, TE> dist;
 
@@ -488,7 +488,7 @@ UnDirectedGraph<TV, TE> UnDirectedGraph<TV, TE>::ExeDijkstra(string src) {
         cout << this->vertexes[x.first]->data << ": " << x.second << endl;
     }
 
-    return g;
+    return dist;
 }
 
 #endif
