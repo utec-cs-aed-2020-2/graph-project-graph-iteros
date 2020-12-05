@@ -1,1 +1,3 @@
-/usr/bin/c++  -g   CMakeFiles/graph-project-graph-iteros.dir/main.cpp.o  -o graph-project-graph-iteros 
+"C:\Program Files\JetBrains\CLion 2020.2.3\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\graph-project-graph-iteros.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\graph-project-graph-iteros.dir/objects.a @CMakeFiles\graph-project-graph-iteros.dir\objects1.rsp
+C:\MinGW\bin\g++.exe -g   -Wl,--whole-archive CMakeFiles\graph-project-graph-iteros.dir/objects.a -Wl,--no-whole-archive  -o graph-project-graph-iteros.exe -Wl,--out-implib,libgraph-project-graph-iteros.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\graph-project-graph-iteros.dir\linklibs.rsp

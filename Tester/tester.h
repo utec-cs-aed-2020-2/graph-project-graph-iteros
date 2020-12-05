@@ -87,23 +87,25 @@ void Tester::executeParser() {
     UnDirectedGraph<string, double> u1graph2;
     parser2.uGraphMake(u1graph2);
 
-    Kruskal<string, double> kruskal(&u1graph2);
-    UnDirectedGraph<string, double> result3 = kruskal.apply();
+    //Kruskal<string, double> kruskal(&u1graph2);
+    //UnDirectedGraph<string, double> result3 = kruskal.apply();
 
-    d1graph.clear();
-    d1graph.display();
+    //d1graph.clear();
+    //d1graph.display();
 
-    cout<<endl;
-    result3.display();
+    //cout<<endl;
+    //result3.display();
 
     UnDirectedGraph<string, double> u2graph;
     parser.uGraphMake(u2graph);
 
     cout << endl <<"Probando Prim" << endl;
-    Prim<string, double> prim(&u2graph, "2796");
-    UnDirectedGraph<string, double> result4 = prim.apply();
+    // Prim<string, double> prim(&u2graph, "2796");
+    // UnDirectedGraph<string, double> result4 = prim.apply();
     cout<<endl;
-    result4.display();
+    // result4.display();
+
+    u2graph.ExeDijkstra("2796");
 }
 
 #endif //GRAPH_PROJECT_GRAPH_ITEROS_TESTER_H

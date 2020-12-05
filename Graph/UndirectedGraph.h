@@ -4,6 +4,8 @@
 #include "graph.h"
 #include <limits>
 
+#define INF numeric_limits<int>::max()
+
 template<typename TV, typename TE>
 struct compWeight {
     bool operator()(const Edge<TV, TE>* e1, const Edge<TV, TE>* e2) const
@@ -53,6 +55,8 @@ public:
     UnDirectedGraph<TV, TE> execKruskal();
     UnDirectedGraph<TV, TE> exePrim(string start);
     bool areConnected(string id1, string id2);
+
+    UnDirectedGraph<TV, TE> ExeDijkstra(string src);
 };
 
 template<typename TV, typename TE>
@@ -451,5 +455,40 @@ UnDirectedGraph<TV, TE> UnDirectedGraph<TV, TE>::exePrim(string start) {
     return g;
 }
 
+
+template<typename TV, typename TE>
+UnDirectedGraph<TV, TE> UnDirectedGraph<TV, TE>::ExeDijkstra(string src) {
+    /// TODO: Falta crear la tabla de parents y el grafo (si es necesario)
+    UnDirectedGraph<TV, TE> g;
+    priority_queue<EPair<TV, TE>, std::vector<EPair<TV, TE>>, compPairs<TV, TE>> pq;
+    unordered_map<string, TE> dist;
+
+    for (auto it : this->vertexes) {
+        dist[it.first] = INF;
+    }
+
+    dist[src] = 0;
+    pq.push(make_pair(nullptr, this->vertexes[src]));
+
+    while ( !pq.empty() ) {
+        string u = pq.top().second->key;
+        pq.pop();
+        for (auto it : this->vertexes[u]->edges) {
+            string v = it->vertexes[1]->key;
+            TE weight = it->weight;
+            if ( dist.count(v) && dist[v] > dist[u] + weight ) {
+                dist[v] = dist[u] + weight;
+                pq.push(make_pair(it, it->vertexes[1]));
+            }
+        }
+    }
+
+    cout << "\nPrint Dijkstra:\n";
+    for (auto x : dist) {
+        cout << this->vertexes[x.first]->data << ": " << x.second << endl;
+    }
+
+    return g;
+}
 
 #endif
