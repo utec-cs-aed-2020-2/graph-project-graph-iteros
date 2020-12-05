@@ -57,6 +57,8 @@ public:
     bool areConnected(string id1, string id2);
 
     unordered_map<string, TE> ExeDijkstra(string src);
+    UnDirectedGraph<TV, TE> ExeBFS();
+    UnDirectedGraph<TV, TE> ExeDFS();
 };
 
 template<typename TV, typename TE>
@@ -414,6 +416,13 @@ struct compPairs{
 };
 
 template<typename TV, typename TE>
+struct compPairs2{
+    bool operator()(const EPair<TV, TE> p1, const EPair<TV, TE> p2) const {
+        return p1.first->weight < p2.first->weight;
+    }
+};
+
+template<typename TV, typename TE>
 UnDirectedGraph<TV, TE> UnDirectedGraph<TV, TE>::exePrim(string start) {
     UnDirectedGraph<TV, TE> g;
     priority_queue<EPair<TV, TE>, std::vector<EPair<TV, TE>>, compPairs<TV, TE>> pq;
@@ -489,6 +498,85 @@ unordered_map<string, TE> UnDirectedGraph<TV, TE>::ExeDijkstra(string src) {
     }
 
     return dist;
+}
+
+template<typename TV, typename TE>
+UnDirectedGraph<TV, TE> UnDirectedGraph<TV, TE>::ExeBFS() {
+    UnDirectedGraph<TV, TE> g;
+    int s = this->vertexes.size();
+    std::stack<Vertex<TV, TE>*> S;
+    std::unordered_map<TV, std::pair<bool, string>> visited;
+    //std::unordered_map<TV, int> ids;
+    for (auto x : this->vertexes) {
+        visited[x.second->data].first = false;          // Visitados
+        visited[x.second->data].second = x.first;       // id
+        g.insertVertex(x.first , (x.second)->data);     // Rellenar los vértices
+    }
+
+    visited[this->vertexes.begin()->second->data].first = true;
+    S.push(this->vertexes.begin()->second);
+    cout << "BEGIN: " << this->vertexes.begin()->second->data << endl;
+    while(!S.empty()) {
+        auto v = S.top();
+        S.pop();
+        std::priority_queue<Vertex<TV, TE>*, std::vector<Vertex<TV, TE>*>, std::greater<typename std::vector<Vertex<TV, TE>*>::value_type>> pq;
+        for (auto unions : v->edges) {
+            if (visited[unions->vertexes[1]->data].first == false) {
+                pq.push(unions->vertexes[1]);
+                visited[unions->vertexes[1]->data].first = true;
+                g.createEdge(visited[unions->vertexes[0]->data].second, visited[unions->vertexes[1]->data].second, unions->weight);
+            }
+        }
+        while(!pq.empty()) {
+            S.push(pq.top());
+            pq.pop();
+        }
+    }
+
+    return g;
+}
+
+template<typename TV, typename TE>
+UnDirectedGraph<TV, TE> UnDirectedGraph<TV, TE>::ExeDFS() {
+    UnDirectedGraph<TV, TE> g;
+    int s = this->vertexes.size();
+    std::stack<EPair<TV, TE>> S;
+    std::unordered_map<TV, std::pair<bool, string>> visited;
+    for (auto x : this->vertexes) {
+        visited[x.second->key].first = false;          // Visitados
+        visited[x.second->key].second = x.first;       // id
+        g.insertVertex(x.first , (x.second)->data, x.second->latitud, x.second->latitud);     // Rellenar los vértices
+    }
+
+    visited[this->vertexes.begin()->second->data].first = true;
+    S.push(make_pair(nullptr, this->vertexes.begin()->second));
+    cout << "BEGIN: " << this->vertexes.begin()->second->data << endl;
+    while(!S.empty()) {
+        Vertex<TV, TE>* v = S.top().second;
+        S.pop();
+        priority_queue<EPair<TV, TE>, std::vector<EPair<TV, TE>>, compPairs2<TV, TE>> pq;
+        for (auto unions : v->edges) {
+            pq.push(make_pair(unions, unions->vertexes[1]));
+            // visited[unions->vertexes[1]->key].first = true;
+
+        }
+
+        cout << "\nVERTICE : " << v->key <<endl;
+        while ( !pq.empty() && visited[pq.top().second->key]) {
+            cout << "\t" << pq.top().second->key << endl;
+            S.push(pq.top());
+            pq.pop();
+        }
+        cout << endl;
+
+        if ( !S.empty() ) {
+            EPair<TV, TE> u = S.top();
+            g.createEdge(u.first->vertexes[0]->key, u.first->vertexes[1], u.first->weight);
+            // S.pop();
+        }
+    }
+
+    return g;
 }
 
 #endif

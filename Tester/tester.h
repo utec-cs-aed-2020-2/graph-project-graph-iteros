@@ -106,6 +106,12 @@ void Tester::executeParser() {
     // result4.display();
 
     u2graph.ExeDijkstra("2796");
+    auto t = u2graph.ExeBFS();
+    t.display2();
+
+    cout << "\nDFS:\n";
+    auto t2 = u2graph.ExeDFS();
+    t2.display2();
 }
 
 #endif //GRAPH_PROJECT_GRAPH_ITEROS_TESTER_H
