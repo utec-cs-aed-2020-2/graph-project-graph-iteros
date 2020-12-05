@@ -548,7 +548,7 @@ UnDirectedGraph<TV, TE> UnDirectedGraph<TV, TE>::ExeDFS() {
         g.insertVertex(x.first , (x.second)->data, x.second->latitud, x.second->latitud);     // Rellenar los vértices
     }
 
-    visited[this->vertexes.begin()->second->data].first = true;
+    visited[this->vertexes.begin()->second->key].first = true;
     S.push(make_pair(nullptr, this->vertexes.begin()->second));
     cout << "BEGIN: " << this->vertexes.begin()->second->data << endl;
     while(!S.empty()) {
@@ -562,17 +562,24 @@ UnDirectedGraph<TV, TE> UnDirectedGraph<TV, TE>::ExeDFS() {
         }
 
         cout << "\nVERTICE : " << v->key <<endl;
-        while ( !pq.empty() && visited[pq.top().second->key]) {
-            cout << "\t" << pq.top().second->key << endl;
-            S.push(pq.top());
+        while ( !pq.empty() ) {
+            if (!visited[pq.top().second->key].first) {
+                cout << "\t" << pq.top().second->key << endl;
+                S.push(pq.top());
+            }
             pq.pop();
         }
         cout << endl;
 
         if ( !S.empty() ) {
             EPair<TV, TE> u = S.top();
-            g.createEdge(u.first->vertexes[0]->key, u.first->vertexes[1], u.first->weight);
-            // S.pop();
+            if (!visited[u.first->vertexes[1]->key].first) {
+                g.createEdge(u.first->vertexes[0]->key, u.first->vertexes[1]->key, u.first->weight);
+                visited[u.first->vertexes[0]->key].first = true;
+                visited[u.first->vertexes[1]->key].first = true;
+                // S.pop();
+                cout << "EDGE CREATED: " << u.first->vertexes[0]->key << " <- " << u.first->weight << " -> " << u.first->vertexes[1]->key << endl;
+            }
         }
     }
 
