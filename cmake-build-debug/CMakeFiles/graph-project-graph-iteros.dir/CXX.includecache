@@ -6,33 +6,37 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/Graph/Algorithms/DFS.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/Graph/Algorithms/DFS.h
 ../UndirectedGraph.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/Graph/UndirectedGraph.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/Graph/UndirectedGraph.h
 
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/Graph/Algorithms/Dijkstra.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/Graph/Algorithms/Dijkstra.h
 ../UndirectedGraph.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/Graph/UndirectedGraph.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/Graph/UndirectedGraph.h
 
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/Graph/Algorithms/Kruskal.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/Graph/Algorithms/Floyd.h
 ../UndirectedGraph.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/Graph/UndirectedGraph.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/Graph/UndirectedGraph.h
 
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/Graph/Algorithms/Prim.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/Graph/Algorithms/Kruskal.h
 ../UndirectedGraph.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/Graph/UndirectedGraph.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/Graph/UndirectedGraph.h
 
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/Graph/DirectedGraph.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/Graph/Algorithms/Prim.h
+../UndirectedGraph.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/Graph/UndirectedGraph.h
+
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/Graph/DirectedGraph.h
 graph.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/Graph/graph.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/Graph/graph.h
 
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/Graph/UndirectedGraph.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/Graph/UndirectedGraph.h
 graph.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/Graph/graph.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/Graph/graph.h
 limits
 -
 
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/Graph/graph.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/Graph/graph.h
 list
 -
 vector
@@ -50,57 +54,59 @@ algorithm
 stdexcept
 -
 
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/Parser/parser.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/Parser/parser.h
 ../Graph/UndirectedGraph.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/Graph/UndirectedGraph.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/Graph/UndirectedGraph.h
 ../Graph/DirectedGraph.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/Graph/DirectedGraph.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/Graph/DirectedGraph.h
 ../rapidjson/document.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/document.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/document.h
 ../rapidjson/writer.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/writer.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/writer.h
 ../rapidjson/stringbuffer.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/stringbuffer.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/stringbuffer.h
 fstream
 -
 math.h
 -
 
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/Tester/tester.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/Tester/tester.h
 ../Graph/Algorithms/Kruskal.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/Graph/Algorithms/Kruskal.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/Graph/Algorithms/Kruskal.h
 ../Graph/Algorithms/Prim.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/Graph/Algorithms/Prim.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/Graph/Algorithms/Prim.h
 ../Graph/Algorithms/Dijkstra.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/Graph/Algorithms/Dijkstra.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/Graph/Algorithms/Dijkstra.h
 ../Graph/Algorithms/DFS.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/Graph/Algorithms/DFS.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/Graph/Algorithms/DFS.h
+../Graph/Algorithms/Floyd.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/Graph/Algorithms/Floyd.h
 ../Parser/parser.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/Parser/parser.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/Parser/parser.h
 string
 -
 iostream
 -
 
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/main.cpp
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/main.cpp
 Tester/tester.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/Tester/tester.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/Tester/tester.h
 
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/allocators.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/allocators.h
 rapidjson.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/rapidjson.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/rapidjson.h
 
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/document.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/document.h
 reader.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/reader.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/reader.h
 internal/meta.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/internal/meta.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/internal/meta.h
 internal/strfunc.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/internal/strfunc.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/internal/strfunc.h
 memorystream.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/memorystream.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/memorystream.h
 encodedstream.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/encodedstream.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/encodedstream.h
 new
 -
 limits
@@ -112,111 +118,111 @@ iterator
 utility
 -
 
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/encodedstream.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/encodedstream.h
 stream.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/stream.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/stream.h
 memorystream.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/memorystream.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/memorystream.h
 
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/encodings.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/encodings.h
 rapidjson.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/rapidjson.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/rapidjson.h
 
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/error/error.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/error/error.h
 ../rapidjson.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/rapidjson.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/rapidjson.h
 
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/internal/biginteger.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/internal/biginteger.h
 ../rapidjson.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/rapidjson.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/rapidjson.h
 intrin.h
 -
 
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/internal/clzll.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/internal/clzll.h
 ../rapidjson.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/rapidjson.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/rapidjson.h
 intrin.h
 -
 
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/internal/diyfp.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/internal/diyfp.h
 ../rapidjson.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/rapidjson.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/rapidjson.h
 clzll.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/internal/clzll.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/internal/clzll.h
 limits
 -
 intrin.h
 -
 
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/internal/dtoa.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/internal/dtoa.h
 itoa.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/internal/itoa.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/internal/itoa.h
 diyfp.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/internal/diyfp.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/internal/diyfp.h
 ieee754.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/internal/ieee754.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/internal/ieee754.h
 
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/internal/ieee754.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/internal/ieee754.h
 ../rapidjson.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/rapidjson.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/rapidjson.h
 
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/internal/itoa.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/internal/itoa.h
 ../rapidjson.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/rapidjson.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/rapidjson.h
 
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/internal/meta.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/internal/meta.h
 ../rapidjson.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/rapidjson.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/rapidjson.h
 type_traits
 -
 
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/internal/pow10.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/internal/pow10.h
 ../rapidjson.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/rapidjson.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/rapidjson.h
 
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/internal/stack.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/internal/stack.h
 ../allocators.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/allocators.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/allocators.h
 swap.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/internal/swap.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/internal/swap.h
 cstddef
 -
 
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/internal/strfunc.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/internal/strfunc.h
 ../stream.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/stream.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/stream.h
 cwchar
 -
 
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/internal/strtod.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/internal/strtod.h
 ieee754.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/internal/ieee754.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/internal/ieee754.h
 biginteger.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/internal/biginteger.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/internal/biginteger.h
 diyfp.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/internal/diyfp.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/internal/diyfp.h
 pow10.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/internal/pow10.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/internal/pow10.h
 climits
 -
 limits
 -
 
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/internal/swap.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/internal/swap.h
 ../rapidjson.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/rapidjson.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/rapidjson.h
 
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/memorystream.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/memorystream.h
 stream.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/stream.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/stream.h
 
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/msinttypes/inttypes.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/msinttypes/inttypes.h
 stdint.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/msinttypes/stdint.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/msinttypes/stdint.h
 inttypes.h
 -
 
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/msinttypes/stdint.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/msinttypes/stdint.h
 stdint.h
 -
 limits.h
@@ -224,19 +230,19 @@ limits.h
 wchar.h
 -
 
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/rapidjson.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/rapidjson.h
 cstdlib
 -
 cstring
 -
 rapidjson/...
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/rapidjson/...
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/rapidjson/...
 string
 -
 msinttypes/stdint.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/msinttypes/stdint.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/msinttypes/stdint.h
 msinttypes/inttypes.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/msinttypes/inttypes.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/msinttypes/inttypes.h
 stdint.h
 -
 inttypes.h
@@ -244,27 +250,27 @@ inttypes.h
 endian.h
 -
 rapidjson/...
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/rapidjson/...
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/rapidjson/...
 cassert
 -
 cassert
 -
 
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/reader.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/reader.h
 allocators.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/allocators.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/allocators.h
 stream.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/stream.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/stream.h
 encodedstream.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/encodedstream.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/encodedstream.h
 internal/clzll.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/internal/clzll.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/internal/clzll.h
 internal/meta.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/internal/meta.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/internal/meta.h
 internal/stack.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/internal/stack.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/internal/stack.h
 internal/strtod.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/internal/strtod.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/internal/strtod.h
 limits
 -
 intrin.h
@@ -278,45 +284,45 @@ arm_neon.h
 stdexcept
 -
 rapidjson/error/error.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/rapidjson/error/error.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/rapidjson/error/error.h
 rapidjson/reader.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/rapidjson/reader.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/rapidjson/reader.h
 error/error.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/error/error.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/error/error.h
 
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/stream.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/stream.h
 rapidjson.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/rapidjson.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/rapidjson.h
 encodings.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/encodings.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/encodings.h
 
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/stringbuffer.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/stringbuffer.h
 stream.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/stream.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/stream.h
 internal/stack.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/internal/stack.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/internal/stack.h
 utility
 -
 internal/stack.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/internal/stack.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/internal/stack.h
 
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/writer.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/writer.h
 stream.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/stream.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/stream.h
 internal/clzll.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/internal/clzll.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/internal/clzll.h
 internal/meta.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/internal/meta.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/internal/meta.h
 internal/stack.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/internal/stack.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/internal/stack.h
 internal/strfunc.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/internal/strfunc.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/internal/strfunc.h
 internal/dtoa.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/internal/dtoa.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/internal/dtoa.h
 internal/itoa.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/internal/itoa.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/internal/itoa.h
 stringbuffer.h
-C:/Users/Jorge/Desktop/graph-project-graph-iteros/rapidjson/stringbuffer.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/limpio/graph-project-graph-iteros/rapidjson/stringbuffer.h
 new
 -
 intrin.h

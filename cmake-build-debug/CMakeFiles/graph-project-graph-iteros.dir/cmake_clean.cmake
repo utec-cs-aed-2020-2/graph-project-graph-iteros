@@ -1,9 +1,7 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/graph-project-graph-iteros.dir/main.cpp.obj"
-  "graph-project-graph-iteros.exe"
-  "graph-project-graph-iteros.exe.manifest"
+  "CMakeFiles/graph-project-graph-iteros.dir/main.cpp.o"
+  "graph-project-graph-iteros"
   "graph-project-graph-iteros.pdb"
-  "libgraph-project-graph-iteros.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -5,6 +5,7 @@
 #include "../Graph/Algorithms/Prim.h"
 #include "../Graph/Algorithms/Dijkstra.h"
 #include "../Graph/Algorithms/DFS.h"
+#include "../Graph/Algorithms/Floyd.h"
 #include "../Parser/parser.h"
 #include <string>
 #include <iostream>
@@ -121,6 +122,12 @@ void Tester::executeParser() {
 
     Dijkstra<string, double> Djks(&u2graph, "2796");
     Djks.apply();
+
+    cout << "FLOYD TESTS: \n";
+    Floyd<string, double> floyd(&u2graph);
+    //floyd.print(); //imprime la matriz de adyacencia
+    cout<<"Distancia entre 2812 y 2789: "<<floyd.distance("2812","2807");
+    cout<<endl;
 
 }
 
