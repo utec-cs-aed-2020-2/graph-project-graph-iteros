@@ -3,6 +3,8 @@
 
 #include "../Graph/Algorithms/Kruskal.h"
 #include "../Graph/Algorithms/Prim.h"
+#include "../Graph/Algorithms/Dijkstra.h"
+#include "../Graph/Algorithms/DFS.h"
 #include "../Parser/parser.h"
 #include <string>
 #include <iostream>
@@ -105,6 +107,7 @@ void Tester::executeParser() {
     cout<<endl;
     // result4.display();
 
+    /*
     u2graph.ExeDijkstra("2796");
     auto t = u2graph.ExeBFS();
     t.display2();
@@ -112,6 +115,13 @@ void Tester::executeParser() {
     cout << "\nDFS:\n";
     auto t2 = u2graph.ExeDFS();
     t2.display2();
+     */
+    DFS<string, double> dfs(&u2graph);
+    dfs.apply();
+
+    Dijkstra<string, double> Djks(&u2graph, "2796");
+    Djks.apply();
+
 }
 
 #endif //GRAPH_PROJECT_GRAPH_ITEROS_TESTER_H

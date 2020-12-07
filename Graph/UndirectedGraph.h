@@ -466,41 +466,6 @@ UnDirectedGraph<TV, TE> UnDirectedGraph<TV, TE>::exePrim(string start) {
 
 
 template<typename TV, typename TE>
-unordered_map<string, TE> UnDirectedGraph<TV, TE>::ExeDijkstra(string src) {
-    /// TODO: Falta crear la tabla de parents y el grafo (si es necesario)
-    // UnDirectedGraph<TV, TE> g;
-    priority_queue<EPair<TV, TE>, std::vector<EPair<TV, TE>>, compPairs<TV, TE>> pq;
-    unordered_map<string, TE> dist;
-
-    for (auto it : this->vertexes) {
-        dist[it.first] = INF;
-    }
-
-    dist[src] = 0;
-    pq.push(make_pair(nullptr, this->vertexes[src]));
-
-    while ( !pq.empty() ) {
-        string u = pq.top().second->key;
-        pq.pop();
-        for (auto it : this->vertexes[u]->edges) {
-            string v = it->vertexes[1]->key;
-            TE weight = it->weight;
-            if ( dist.count(v) && dist[v] > dist[u] + weight ) {
-                dist[v] = dist[u] + weight;
-                pq.push(make_pair(it, it->vertexes[1]));
-            }
-        }
-    }
-
-    cout << "\nPrint Dijkstra:\n";
-    for (auto x : dist) {
-        cout << this->vertexes[x.first]->data << ": " << x.second << endl;
-    }
-
-    return dist;
-}
-
-template<typename TV, typename TE>
 UnDirectedGraph<TV, TE> UnDirectedGraph<TV, TE>::ExeBFS() {
     UnDirectedGraph<TV, TE> g;
     int s = this->vertexes.size();
@@ -537,6 +502,41 @@ UnDirectedGraph<TV, TE> UnDirectedGraph<TV, TE>::ExeBFS() {
 }
 
 template<typename TV, typename TE>
+unordered_map<string, TE> UnDirectedGraph<TV, TE>::ExeDijkstra(string src) {
+    /// TODO: Falta crear la tabla de parents y el grafo (si es necesario)
+    // UnDirectedGraph<TV, TE> g;
+    priority_queue<EPair<TV, TE>, std::vector<EPair<TV, TE>>, compPairs<TV, TE>> pq;
+    unordered_map<string, TE> dist;
+
+    for (auto it : this->vertexes) {
+        dist[it.first] = INF;
+    }
+
+    dist[src] = 0;
+    pq.push(make_pair(nullptr, this->vertexes[src]));
+
+    while ( !pq.empty() ) {
+        string u = pq.top().second->key;
+        pq.pop();
+        for (auto it : this->vertexes[u]->edges) {
+            string v = it->vertexes[1]->key;
+            TE weight = it->weight;
+            if ( dist.count(v) && dist[v] > dist[u] + weight ) {
+                dist[v] = dist[u] + weight;
+                pq.push(make_pair(it, it->vertexes[1]));
+            }
+        }
+    }
+
+    cout << "\nPrint Dijkstra:\n";
+    for (auto x : dist) {
+        cout << this->vertexes[x.first]->data << ": " << x.second << endl;
+    }
+
+    return dist;
+}
+
+template<typename TV, typename TE>
 UnDirectedGraph<TV, TE> UnDirectedGraph<TV, TE>::ExeDFS() {
     UnDirectedGraph<TV, TE> g;
     int s = this->vertexes.size();
@@ -561,7 +561,7 @@ UnDirectedGraph<TV, TE> UnDirectedGraph<TV, TE>::ExeDFS() {
 
         }
 
-        cout << "\nVERTICE : " << v->key <<endl;
+        // cout << "\nVERTICE : " << v->key <<endl;
         while ( !pq.empty() ) {
             if (!visited[pq.top().second->key].first) {
                 cout << "\t" << pq.top().second->key << endl;
@@ -577,8 +577,7 @@ UnDirectedGraph<TV, TE> UnDirectedGraph<TV, TE>::ExeDFS() {
                 g.createEdge(u.first->vertexes[0]->key, u.first->vertexes[1]->key, u.first->weight);
                 visited[u.first->vertexes[0]->key].first = true;
                 visited[u.first->vertexes[1]->key].first = true;
-                // S.pop();
-                cout << "EDGE CREATED: " << u.first->vertexes[0]->key << " <- " << u.first->weight << " -> " << u.first->vertexes[1]->key << endl;
+                // cout << "EDGE CREATED: " << u.first->vertexes[0]->key << " <- " << u.first->weight << " -> " << u.first->vertexes[1]->key << endl;
             }
         }
     }

@@ -6,6 +6,14 @@
 
 #IncludeRegexTransform: 
 
+C:/Users/Jorge/Desktop/graph-project-graph-iteros/Graph/Algorithms/DFS.h
+../UndirectedGraph.h
+C:/Users/Jorge/Desktop/graph-project-graph-iteros/Graph/UndirectedGraph.h
+
+C:/Users/Jorge/Desktop/graph-project-graph-iteros/Graph/Algorithms/Dijkstra.h
+../UndirectedGraph.h
+C:/Users/Jorge/Desktop/graph-project-graph-iteros/Graph/UndirectedGraph.h
+
 C:/Users/Jorge/Desktop/graph-project-graph-iteros/Graph/Algorithms/Kruskal.h
 ../UndirectedGraph.h
 C:/Users/Jorge/Desktop/graph-project-graph-iteros/Graph/UndirectedGraph.h
@@ -63,6 +71,10 @@ C:/Users/Jorge/Desktop/graph-project-graph-iteros/Tester/tester.h
 C:/Users/Jorge/Desktop/graph-project-graph-iteros/Graph/Algorithms/Kruskal.h
 ../Graph/Algorithms/Prim.h
 C:/Users/Jorge/Desktop/graph-project-graph-iteros/Graph/Algorithms/Prim.h
+../Graph/Algorithms/Dijkstra.h
+C:/Users/Jorge/Desktop/graph-project-graph-iteros/Graph/Algorithms/Dijkstra.h
+../Graph/Algorithms/DFS.h
+C:/Users/Jorge/Desktop/graph-project-graph-iteros/Graph/Algorithms/DFS.h
 ../Parser/parser.h
 C:/Users/Jorge/Desktop/graph-project-graph-iteros/Parser/parser.h
 string
