@@ -6,6 +6,7 @@
 #include "../Graph/Algorithms/Dijkstra.h"
 #include "../Graph/Algorithms/DFS.h"
 #include "../Graph/Algorithms/Floyd.h"
+#include "../Graph/Algorithms/BF.h"
 #include "../Parser/parser.h"
 #include <string>
 #include <iostream>
@@ -129,6 +130,9 @@ void Tester::executeParser() {
     cout<<"Distancia entre 2812 y 2789: "<<floyd.distance("2812","2807");
     cout<<endl;
 
+    cout << "\nBellman-Ford test: \n";
+    BF<string, double> bf(&u2graph, "2796");
+    bf.apply();
 }
 
 #endif //GRAPH_PROJECT_GRAPH_ITEROS_TESTER_H
