@@ -132,7 +132,7 @@ void Tester::executeParser() {
 
     cout << "\nBellman-Ford test: \n";
     BF<string, double> bf(&u2graph, "2796");
-    bf.apply();
+    bf.print();
 }
 
 #endif //GRAPH_PROJECT_GRAPH_ITEROS_TESTER_H

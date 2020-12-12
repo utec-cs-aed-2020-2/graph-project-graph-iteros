@@ -10,7 +10,8 @@ struct BF {
     Graph<TV, TE>* graph;
     string src;
     BF(Graph<TV, TE>* graph, string src);
-    void apply();
+    unordered_map<TV, TE> apply();
+    void print();
 };
 
 template<typename TV, typename TE>
@@ -20,11 +21,10 @@ BF<TV, TE>::BF(Graph<TV, TE> *graph, string src) {
 }
 
 template<typename TV, typename TE>
-void BF<TV, TE>::apply() {
+unordered_map<TV, TE> BF<TV, TE>::apply() {
     unordered_map<TV, TE> dist;
     int v = graph->vertexes.size();
     int e = graph->edges;
-    TV srcData;
     TE infinite;
 
     //infinite representation
@@ -34,9 +34,8 @@ void BF<TV, TE>::apply() {
     //initialize distance from src to all vertexes
     for (auto i : graph->vertexes) {
         dist[i.second->data] = infinite;
-        if (i.first == src) srcData = i.second->data;
+        if (i.first == src) dist[i.second->data] = 0;
     }
-    dist[srcData] = 0;
 
     //calculate shortest distances
     for (int k = 0; k < v - 1; ++k) {
@@ -61,15 +60,22 @@ void BF<TV, TE>::apply() {
 
             if (dist[edgeSrc] != infinite && dist[edgeSrc] + edgeWeight < dist[edgeDest]) {
                 cout << "Negative weight cycle detected";
-                return;
+                return unordered_map<TV, TE>();
             }
         }
     }
 
+    return dist;
+}
+
+template<typename TV, typename TE>
+void BF<TV, TE>::print() {
+    auto map = apply();
+
     //print result
-    cout << "Shortest distance from " << srcData << ": " << endl;
+    cout << "Shortest distance from " << graph->vertexes[src]->data << ": " << endl;
     cout << "Vertex\tDistance" << endl;
-    for (auto i : dist) {
+    for (auto i : map) {
         cout << i.first << "\t" << i.second << endl;
     }
 }
