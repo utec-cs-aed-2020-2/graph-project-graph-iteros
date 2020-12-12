@@ -7,6 +7,7 @@
 #include "../Graph/Algorithms/DFS.h"
 #include "../Graph/Algorithms/Floyd.h"
 #include "../Graph/Algorithms/BF.h"
+#include "../Graph/Algorithms/A.h"
 #include "../Parser/parser.h"
 #include <string>
 #include <iostream>
@@ -133,6 +134,10 @@ void Tester::executeParser() {
     cout << "\nBellman-Ford test: \n";
     BF<string, double> bf(&u2graph, "2796");
     bf.print();
+
+    cout << "\nA* test: \n";
+    Asterisk<string, double> a(&u2graph, "2812","2807");
+    a.print();
 }
 
 #endif //GRAPH_PROJECT_GRAPH_ITEROS_TESTER_H
