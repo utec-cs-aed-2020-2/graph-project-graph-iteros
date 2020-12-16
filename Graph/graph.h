@@ -62,6 +62,9 @@ template<typename TV, typename TE>
 struct DFS;
 
 template<typename TV, typename TE>
+struct BFS;
+
+template<typename TV, typename TE>
 struct Floyd;
 
 template<typename TV, typename TE>
@@ -80,6 +83,7 @@ protected:
     friend struct Kruskal<TV, TE>;
     friend struct Dijkstra<TV, TE>;
     friend struct DFS<TV, TE>;
+    friend struct BFS<TV, TE>;
     friend struct Floyd<TV, TE>;
     friend struct BF<TV, TE>;
     friend struct Asterisk<TV, TE>;

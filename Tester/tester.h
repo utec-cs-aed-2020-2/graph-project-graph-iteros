@@ -5,6 +5,7 @@
 #include "../Graph/Algorithms/Prim.h"
 #include "../Graph/Algorithms/Dijkstra.h"
 #include "../Graph/Algorithms/DFS.h"
+#include "../Graph/Algorithms/BFS.h"
 #include "../Graph/Algorithms/Floyd.h"
 #include "../Graph/Algorithms/BF.h"
 #include "../Graph/Algorithms/A.h"
@@ -36,9 +37,10 @@ void Tester::executeExamples() {
     graph.insertVertex("2", 'B');
     graph.insertVertex("3", 'C');
     graph.insertVertex("4", 'D');
+    graph.insertVertex("5", 'E');
 
     graph.createEdge("1", "2", 10);
-    graph.createEdge("1", "2", 12);
+    graph.createEdge("1", "5", 12);
     graph.createEdge("1", "3", 5);
     graph.createEdge("3", "4", 15);
     graph.createEdge("2", "4", 20);
@@ -52,6 +54,10 @@ void Tester::executeExamples() {
 
     Prim<char, int> prim(&graph, "3");
     UnDirectedGraph<char, int> result2 = prim.apply();
+
+    BFS<char, int> bfs(&graph);
+    auto g2=bfs.apply("4");
+    g2.display2();
 
     result1.display();
     cout << endl;
@@ -121,6 +127,11 @@ void Tester::executeParser() {
      */
     DFS<string, double> dfs(&u2graph);
     dfs.apply();
+
+    cout<<"\nBFS:\n";
+    BFS<string, double> bfs(&u2graph);
+    auto g=bfs.apply("2806");
+    g.display2();
 
     Dijkstra<string, double> Djks(&u2graph, "2796");
     Djks.apply();
