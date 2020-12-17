@@ -590,7 +590,43 @@ template<typename TV, typename TE>
 UnDirectedGraph<TV, TE> UnDirectedGraph<TV, TE>::ExeBFS2() {
     UnDirectedGraph<TV, TE> g;
 
-    
+    queue<Vertex<TV, TE>*> q;
+    unordered_map<Vertex<TV, TE>*, bool> visited;
+    for (auto v : this->vertexes)
+    {
+        visited[v.second] = false;
+        g.insertVertex(v.first, v.second->data, v.second->latitud, v.second->longitud);
+    }
+
+    /// FIRST VERTEX
+    Vertex<TV, TE>* init = this->vertexes.begin()->second;
+    q.push(init);
+    visited[init] = true;
+
+    cout << "FIRST: " << init->data << "\n";
+
+    while ( !q.empty() )
+    {
+        auto u = q.front();
+        q.pop();
+        priority_queue<Edge<TV, TE>*, vector<Edge<TV, TE>*>, compWeight<TV, TE>> pq;
+        for (auto edge : u->edges)
+        {
+            if ( !visited[edge->vertexes[1]] )
+            {
+                pq.push(edge);
+                visited[edge->vertexes[1]] = true;
+                g.createEdge(edge->vertexes[0]->key, edge->vertexes[1]->key, edge->weight);
+            }
+        }
+
+        while ( !pq.empty() )
+        {
+            // Se agregan para evaluarse en orden
+            q.push( pq.top()->vertexes[1] );
+            pq.pop();
+        }
+    }
 
     return g;
 }
