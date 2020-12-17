@@ -59,6 +59,7 @@ public:
     unordered_map<string, TE> ExeDijkstra(string src);
     UnDirectedGraph<TV, TE> ExeBFS();
     UnDirectedGraph<TV, TE> ExeDFS();
+    UnDirectedGraph<TV, TE> ExeBFS2();
 };
 
 template<typename TV, typename TE>
@@ -581,6 +582,15 @@ UnDirectedGraph<TV, TE> UnDirectedGraph<TV, TE>::ExeDFS() {
             }
         }
     }
+
+    return g;
+}
+
+template<typename TV, typename TE>
+UnDirectedGraph<TV, TE> UnDirectedGraph<TV, TE>::ExeBFS2() {
+    UnDirectedGraph<TV, TE> g;
+
+    
 
     return g;
 }

@@ -149,6 +149,24 @@ void Tester::executeParser() {
     cout << "\nA* test: \n";
     Asterisk<string, double> a(&u2graph, "2812","2807");
     a.print();
+
+    cout << "\n-----------------StronglyConnectedComponent-------------\n";
+    DirectedGraph<int, int> dg;
+    dg.insertVertex("1", 1);
+    dg.insertVertex("2", 2);
+    dg.insertVertex("3", 3);
+    dg.insertVertex("4", 4);
+    dg.insertVertex("5", 5);
+
+    dg.createEdge("1", "2", 4);
+    dg.createEdge("1", "3", 3);
+    dg.createEdge("3", "1", 1);
+    dg.createEdge("2", "1", 7);
+    dg.createEdge("4", "5", 3);
+    dg.createEdge("1", "5", 10);
+    dg.createEdge("5", "4", 8);
+
+    dg.StronglyConnectedComponents();
 }
 
 #endif //GRAPH_PROJECT_GRAPH_ITEROS_TESTER_H
