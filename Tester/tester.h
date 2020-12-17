@@ -142,6 +142,9 @@ void Tester::executeParser() {
     //floyd.print(); //imprime la matriz de adyacencia
     cout<<"Distancia entre 2812 y 2789: "<<floyd.distance("2812","2807");
     cout<<endl;
+    cout<<"PATH:   ";
+    floyd.showpath("2812","2807");
+    cout<<endl;
 
     cout << "\nBellman-Ford test: \n";
     BF<string, double> bf(&u2graph, "2796");
