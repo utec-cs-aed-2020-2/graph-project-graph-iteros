@@ -57,8 +57,42 @@ UndirectedGraph<char, int> result = kruskal.apply();//return a tree
 Prim<char, int> prim(&graph, "A");
 UndirectedGraph<char, int> result = prim.apply();//return a tree
 ```
+### Algorithms (Part 2):
+```cpp
+//Given the graphs
+UndirectedGraph<char, int> graph;
+DirectedGraph<char, int> graph;
+
+//1- Breadth-first Search (only for undirected graphs)
+BFS<char, int> bfs(&graph);
+UndirectedGraph<char, int> result = bfs.apply(string src); //return a tree
+
+//2- Depth-first Search(only for undirected graphs)
+DFS<char, int> dfs(&graph);
+UndirectedGraph<char, int> result = bfs.apply(string src); //return a tree
+
+//3- Strongly Connected Components  (for Directed Graph)
+SCC<char, int> scc(&graph);
+bool result = scc.apply()
 
 
+//4- Dijkstra Algorithm
+Dijkstra<char, int>djks(&graph, string src);
+djks.apply();
+
+//5- Floy Warshall  (for Undirected Graphs)
+Floyd<char int> floyd();
+floyd.distance(v1, v2);
+floyd.showpath(v1,v2);
+
+//6- Bellman Ford
+BF<char, int> bf(&graph, string src);
+bf.print();
+
+//7- A*
+Asterisk<char, int> aa(&graph, p1, p2);
+aa.print();
+```
 ## JSON file parser
 * Construye un grafo a partir de una archivo JSON de aereopuertos del mundo. 
 
