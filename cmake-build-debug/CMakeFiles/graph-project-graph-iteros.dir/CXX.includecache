@@ -48,6 +48,10 @@ limits
 ../UndirectedGraph.h
 /home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/graph-project-graph-iteros/Graph/UndirectedGraph.h
 
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/graph-project-graph-iteros/Graph/Algorithms/SCC.h
+../DirectedGraph.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/graph-project-graph-iteros/Graph/DirectedGraph.h
+
 /home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/graph-project-graph-iteros/Graph/DirectedGraph.h
 graph.h
 /home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/graph-project-graph-iteros/Graph/graph.h
@@ -109,6 +113,8 @@ math.h
 /home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/graph-project-graph-iteros/Graph/Algorithms/BF.h
 ../Graph/Algorithms/A.h
 /home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/graph-project-graph-iteros/Graph/Algorithms/A.h
+../Graph/Algorithms/SCC.h
+/home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/graph-project-graph-iteros/Graph/Algorithms/SCC.h
 ../Parser/parser.h
 /home/jlr/Desktop/Algoritmos y Estructuras de Datos/Proyecto/graph-project-graph-iteros/Parser/parser.h
 string

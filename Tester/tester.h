@@ -9,6 +9,7 @@
 #include "../Graph/Algorithms/Floyd.h"
 #include "../Graph/Algorithms/BF.h"
 #include "../Graph/Algorithms/A.h"
+#include "../Graph/Algorithms/SCC.h"
 #include "../Parser/parser.h"
 #include <string>
 #include <iostream>
@@ -125,7 +126,7 @@ void Tester::executeParser() {
     auto t2 = u2graph.ExeDFS();
     t2.display2();
      */
-    DFS<string, double> dfs(&u2graph);
+    DFS<string, double> dfs(&u2graph, "2806");
     dfs.apply();
 
     cout<<"\nBFS:\n";
@@ -166,7 +167,9 @@ void Tester::executeParser() {
     dg.createEdge("1", "5", 10);
     dg.createEdge("5", "4", 8);
 
-    dg.StronglyConnectedComponents();
+    SCC<int, int> scc(&dg);
+    auto m = scc.apply();
+    cout<<"IS STRONGLY CONNECTED?????:   " << (m?"TRUE"  : "FALSE") <<endl;
 }
 
 #endif //GRAPH_PROJECT_GRAPH_ITEROS_TESTER_H

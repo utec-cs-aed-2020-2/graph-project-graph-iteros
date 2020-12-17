@@ -9,6 +9,7 @@ CMakeFiles/graph-project-graph-iteros.dir/main.cpp.o: ../Graph/Algorithms/Dijkst
 CMakeFiles/graph-project-graph-iteros.dir/main.cpp.o: ../Graph/Algorithms/Floyd.h
 CMakeFiles/graph-project-graph-iteros.dir/main.cpp.o: ../Graph/Algorithms/Kruskal.h
 CMakeFiles/graph-project-graph-iteros.dir/main.cpp.o: ../Graph/Algorithms/Prim.h
+CMakeFiles/graph-project-graph-iteros.dir/main.cpp.o: ../Graph/Algorithms/SCC.h
 CMakeFiles/graph-project-graph-iteros.dir/main.cpp.o: ../Graph/DirectedGraph.h
 CMakeFiles/graph-project-graph-iteros.dir/main.cpp.o: ../Graph/UndirectedGraph.h
 CMakeFiles/graph-project-graph-iteros.dir/main.cpp.o: ../Graph/graph.h

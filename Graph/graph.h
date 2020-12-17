@@ -74,6 +74,9 @@ template<typename TV, typename TE>
 struct Asterisk;
 
 template<typename TV, typename TE>
+struct SCC;
+
+template<typename TV, typename TE>
 class Graph{
 protected:
     std::unordered_map<string, Vertex<TV, TE>*>  vertexes;
@@ -87,7 +90,9 @@ protected:
     friend struct Floyd<TV, TE>;
     friend struct BF<TV, TE>;
     friend struct Asterisk<TV, TE>;
-    
+    friend struct SCC<TV, TE>;
+
+
 public:
     virtual bool insertVertex(string id, TV vertex, double latitud = 0, double longitud = 0) = 0;
     virtual bool createEdge(string id1, string id2, TE w) = 0;
