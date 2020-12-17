@@ -23,7 +23,7 @@ int main(int argc, char *argv[]) {
     std::cout << "PARSER  MUNDO" << std::endl;
     std::cout << "================================================" << std::endl;
 
-    Tester::executeParserMundo("../Parser/Data/airports.json");
+//    Tester::executeParserMundo("../Parser/Data/airports.json");
 
 
     return EXIT_SUCCESS;

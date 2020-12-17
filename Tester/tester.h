@@ -128,8 +128,7 @@ void Tester::executeExamples() {
     dg.createEdge("5", "4", 8);
 
     SCC<int, int> scc(&dg);
-    auto m = scc.apply();
-    cout<<"IS STRONGLY CONNECTED?????:   " << (m?"TRUE"  : "FALSE") <<endl;
+    scc.apply();
 }
 
 void Tester::executeParserPeru(string path) {

@@ -11,7 +11,7 @@ template<typename TV, typename TE>
 struct SCC {
     DirectedGraph<TV, TE> *graph;
     SCC(DirectedGraph<TV, TE> *graph);
-    bool apply();
+    void apply();
 };
 
 
@@ -21,39 +21,76 @@ SCC<TV, TE>::SCC(DirectedGraph<TV, TE> *_graph_) {
 }
 
 template<typename TV, typename TE>
-bool SCC<TV, TE>::apply() {
-    // Para que sea fuertemente conectado debe tener camino entre cualquier par de vértices
-    int comp = 0;
-    for(auto iter : this->graph->vertexes) {
-        auto id = iter.first;
-        std::unordered_map<TV, bool> visited;
-        std::queue<Vertex<TV, TE>*> q;
-        for (auto it : this->graph->vertexes)
-            visited[(it.second)->data] = false;
-        visited[this->graph->vertexes[id]->data] = true;
-        q.push(this->graph->vertexes[id]);
-        auto u = q.front();
-        q.push(u);
-        while (!q.empty()) {
-            u = q.front();
+void SCC<TV, TE>::apply() {
+    unordered_map<Vertex<TV, TE>*, unordered_map<Vertex<TV, TE>*, bool>> m;
+    for ( auto vertex : this->graph->vertexes )
+    {
+        unordered_map<Vertex<TV, TE>*, bool> hood;
+        queue<Vertex<TV, TE>*> q;
+        q.push(vertex.second);
+        while ( !q.empty() )
+        {
+            auto u = q.front();
             q.pop();
-            for (auto it : u->edges) {
-                if (visited[(it->vertexes)[1]->data] == false) {
-                    q.push((it->vertexes)[1]);
-                    visited[(it->vertexes)[1]->data] = true;
+            for (auto edge : u->edges)
+            {
+                if ( hood.count(edge->vertexes[1])==0 && edge->vertexes[1]->key != vertex.second->key )
+                {
+                    hood[edge->vertexes[1]] = true;
+                    q.push(edge->vertexes[1]);
                 }
             }
         }
-
-        for (auto x : visited) {
-            if (!x.second)
-                return false;
-        }
-
-        comp++;
+        m[vertex.second] = hood;
     }
 
-    return comp == this->graph->vertexes.size();
+    for (auto x : m)
+    {
+        cout << x.first->data << ":\n";
+        for (auto y : x.second)
+        {
+            cout << "\t" << y.first->data << " ";
+        }
+        cout << "\n";
+    }
+
+
+    vector<vector<Vertex<TV, TE>*>> Components;
+    unordered_map<string, bool> visited;
+    for (auto k : this->graph->vertexes)
+        visited[k.first] = false;
+
+    for (auto vertex : m)
+    {
+        vector<Vertex<TV, TE>*> Component;
+        if ( !visited[vertex.first->key] )
+        {
+            Component.push_back(vertex.first);
+            visited[vertex.first->key] = true;
+            for (auto x : vertex.second)
+            {
+                if ( m[x.first].count(vertex.first) )
+                {
+                    Component.push_back(x.first);
+                    visited[x.first->key] = true;
+                }
+            }
+        }
+        if (!Component.empty())
+        {
+            Components.push_back(Component);
+        }
+    }
+
+    cout << "Components: " << Components.size() << "\n";
+    for (auto x : Components)
+    {
+        for (auto y : x)
+        {
+            cout << y->data << " ";
+        }
+        cout << "\n";
+    }
 }
 
 

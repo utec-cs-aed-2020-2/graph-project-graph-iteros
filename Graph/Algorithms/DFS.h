@@ -66,7 +66,7 @@ UnDirectedGraph<TV, TE> DFS<TV, TE>::apply() {
             }
         }
     }
-    g.display2();
+//    g.display2();
     return g;
 }
 
