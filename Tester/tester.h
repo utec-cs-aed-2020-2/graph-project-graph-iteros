@@ -17,7 +17,8 @@
 using namespace rapidjson;
 struct Tester {
     static void executeExamples();
-    static void executeParser();
+    static void executeParserPeru(string);
+    static void executeParserMundo(string);
 };
 
 void Tester::executeExamples() {
@@ -58,101 +59,12 @@ void Tester::executeExamples() {
 
     BFS<char, int> bfs(&graph);
     auto g2=bfs.apply("4");
-    g2.display2();
+    g2.display();
 
     result1.display();
     cout << endl;
     result2.display();
     cout << endl;
-}
-
-void Tester::executeParser() {
-    Parser parser,parser2;
-    parser.readJSON();
-    parser2.readJSON();
-    //parser.printJSON();
-    DirectedGraph<string, double> d1graph;
-    parser.dGraphMake(d1graph);
-
-    cout<<"Probando Métodos:"<<endl;
-    // probando operador ()
-    auto A = d1graph("2808","2812");
-    cout<<"Operador (): "<<A<<endl;
-
-    // probando densidad
-    float D = d1graph.density();
-    cout<<"Densidad: "<<D<<endl;
-
-
-    // probando isDense, isConnected, empty
-    bool dense = d1graph.isDense();
-    if(dense) {cout << "Dense!" << endl;} else {cout << "No Dense!" << endl;}
-    bool connected = d1graph.isConnected();
-    if(connected) {cout << "Connected!" << endl;} else {cout << "No Connected!" << endl;}
-    bool stronglyConnected = d1graph.isStronglyConnected();
-    if(stronglyConnected) {cout << "Is Strongly Connected!" << endl;} else {cout << "No Connected!" << endl;}
-    bool empty = d1graph.empty();
-    if(empty) {cout << "Empty !" << endl;} else {cout << "No Empty!" << endl;}
-
-    cout<<endl;cout<<endl;
-    cout<<"Probando Kruskal: "<<endl;
-    UnDirectedGraph<string, double> u1graph2;
-    parser2.uGraphMake(u1graph2);
-
-    //Kruskal<string, double> kruskal(&u1graph2);
-    //UnDirectedGraph<string, double> result3 = kruskal.apply();
-
-    //d1graph.clear();
-    //d1graph.display();
-
-    //cout<<endl;
-    //result3.display();
-
-    UnDirectedGraph<string, double> u2graph;
-    parser.uGraphMake(u2graph);
-
-    cout << endl <<"Probando Prim" << endl;
-    // Prim<string, double> prim(&u2graph, "2796");
-    // UnDirectedGraph<string, double> result4 = prim.apply();
-    cout<<endl;
-    // result4.display();
-
-    /*
-    u2graph.ExeDijkstra("2796");
-    auto t = u2graph.ExeBFS();
-    t.display2();
-
-    cout << "\nDFS:\n";
-    auto t2 = u2graph.ExeDFS();
-    t2.display2();
-     */
-    DFS<string, double> dfs(&u2graph, "2806");
-    dfs.apply();
-
-    cout<<"\nBFS:\n";
-    BFS<string, double> bfs(&u2graph);
-    auto g=bfs.apply("2806");
-    g.display2();
-
-    Dijkstra<string, double> Djks(&u2graph, "2796");
-    Djks.apply();
-
-    cout << "FLOYD TESTS: \n";
-    Floyd<string, double> floyd(&u2graph);
-    //floyd.print(); //imprime la matriz de adyacencia
-    cout<<"Distancia entre 2812 y 2789: "<<floyd.distance("2812","2807");
-    cout<<endl;
-    cout<<"PATH:   ";
-    floyd.showpath("2812","2807");
-    cout<<endl;
-
-    cout << "\nBellman-Ford test: \n";
-    BF<string, double> bf(&u2graph, "2796");
-    bf.print();
-
-    cout << "\nA* test: \n";
-    Asterisk<string, double> a(&u2graph, "2812","2807");
-    a.print();
 
     cout << "\n-----------------StronglyConnectedComponent-------------\n";
     DirectedGraph<int, int> dg;
@@ -173,6 +85,179 @@ void Tester::executeParser() {
     SCC<int, int> scc(&dg);
     auto m = scc.apply();
     cout<<"IS STRONGLY CONNECTED?????:   " << (m?"TRUE"  : "FALSE") <<endl;
+
+
 }
+
+void Tester::executeParserPeru(string path) {
+    Parser parser,parser2;
+    parser.readJSON(path);
+    parser2.readJSON(path);
+    DirectedGraph<string, double> d1graph;
+    parser.dGraphMake(d1graph);
+
+    cout<<"Probando Métodos:"<<endl;
+    // probando operador ()
+    auto A = d1graph("2808","2812");
+    cout<<"Operador (): "<<A<<endl;
+
+    // probando densidad
+    float D = d1graph.density();
+    cout<<"Densidad: "<<D<<endl;
+
+
+    // probando isDense, isConnected, empty
+    bool dense = d1graph.isDense();
+    if(dense) {cout << "Dense!" << endl;} else {cout << "No Dense!" << endl;}
+
+    bool connected = d1graph.isConnected();
+    if(connected) {cout << "Connected!" << endl;} else {cout << "No Connected!" << endl;}
+
+    bool stronglyConnected = d1graph.isStronglyConnected();
+    if(stronglyConnected) {cout << "Is Strongly Connected!" << endl;} else {cout << "No Connected!" << endl;}
+
+    bool empty = d1graph.empty();
+    if(empty) {cout << "Empty !" << endl;} else {cout << "No Empty!" << endl;}
+
+    cout<<endl;cout<<endl;
+
+    cout<<"Probando Kruskal: "<<endl;
+    UnDirectedGraph<string, double> u1graph2;
+    parser2.uGraphMake(u1graph2);
+
+    Kruskal<string, double> kruskal(&u1graph2);
+    UnDirectedGraph<string, double> result3 = kruskal.apply();
+
+    //cout<<endl;
+    result3.display();
+
+    UnDirectedGraph<string, double> u2graph;
+    parser.uGraphMake(u2graph);
+
+    cout << endl <<"Probando Prim" << endl;
+    Prim<string, double> prim(&u2graph, "2796");
+    UnDirectedGraph<string, double> result4 = prim.apply();
+    cout<<endl;
+    result4.display();
+
+    cout<<"\nDFS:\n";
+    DFS<string, double> dfs(&u2graph, "2806");
+    auto m = dfs.apply();
+    m.display();
+
+    cout<<"\nBFS:\n";
+    BFS<string, double> bfs(&u2graph);
+    auto g=bfs.apply("2806");
+    g.display();
+
+    cout<<"\nDijkstra:\n";
+    Dijkstra<string, double> Djks(&u2graph, "2796");
+    Djks.apply();
+
+    cout << "FLOYD TESTS: \n";
+    Floyd<string, double> floyd(&u2graph);
+    //floyd.print(); //imprime la matriz de adyacencia
+    cout<<"Distancia entre 2812 y 2789: "<<floyd.distance("2812","2807");
+    cout<<endl;
+    cout<<"PATH:   ";
+    floyd.showpath("2812","2807");
+    cout<<endl;
+
+    cout << "\nBellman-Ford test: \n";
+    BF<string, double> bf(&u2graph, "2796");
+    bf.print();
+
+    cout << "\nA* test: \n";
+    Asterisk<string, double> a(&u2graph, "2812","2807");
+    a.print();
+
+
+}
+
+void Tester::executeParserMundo(string path) {
+    Parser parser,parser2;
+    parser.readJSON(path);
+    parser2.readJSON(path);
+    DirectedGraph<string, double> d1graph;
+    parser.dGraphMake(d1graph);
+
+    cout<<"Probando Métodos:"<<endl;
+    // probando operador ()
+    auto A = d1graph("2662","1194");
+    cout<<"Operador (): "<<A<<endl;
+
+    // probando densidad
+    float D = d1graph.density();
+    cout<<"Densidad: "<<D<<endl;
+
+
+    // probando isDense, isConnected, empty
+    bool dense = d1graph.isDense();
+    if(dense) {cout << "Dense!" << endl;} else {cout << "No Dense!" << endl;}
+
+    bool connected = d1graph.isConnected();
+    if(connected) {cout << "Connected!" << endl;} else {cout << "No Connected!" << endl;}
+
+    bool stronglyConnected = d1graph.isStronglyConnected();
+    if(stronglyConnected) {cout << "Is Strongly Connected!" << endl;} else {cout << "No Connected!" << endl;}
+
+    bool empty = d1graph.empty();
+    if(empty) {cout << "Empty !" << endl;} else {cout << "No Empty!" << endl;}
+
+    cout<<endl;cout<<endl;
+
+    cout<<"Probando Kruskal: "<<endl;
+    UnDirectedGraph<string, double> u1graph2;
+    parser2.uGraphMake(u1graph2);
+
+    Kruskal<string, double> kruskal(&u1graph2);
+    UnDirectedGraph<string, double> result3 = kruskal.apply();
+
+    //cout<<endl;
+    //result3.display();
+
+    UnDirectedGraph<string, double> u2graph;
+    parser.uGraphMake(u2graph);
+
+    cout << endl <<"Probando Prim" << endl;
+    Prim<string, double> prim(&u2graph, "2662");
+    UnDirectedGraph<string, double> result4 = prim.apply();
+    cout<<endl;
+    //result4.display();
+
+    cout<<"\nDFS:\n";
+    DFS<string, double> dfs(&u2graph, "2662");
+    auto m = dfs.apply();
+    //m.display();
+
+    cout<<"\nBFS:\n";
+    BFS<string, double> bfs(&u2graph);
+    auto g=bfs.apply("2662");
+    //g.display();
+
+    cout<<"\nDijkstra:\n";
+    Dijkstra<string, double> Djks(&u2graph, "2662");
+    Djks.apply();
+
+    cout << "FLOYD TESTS: (DESCOMENTAR EN tester.h PARA EJECUTAR, 12mins aprox.)\n";
+    /*
+    Floyd<string, double> floyd(&u2graph);
+    cout<<"Distancia entre 2662(Chile-La Florida) y 1194(Bulgaria-Sofia): "<<floyd.distance("2662","1194");
+    cout<<endl;
+    cout<<"PATH:   ";
+    floyd.showpath("2662","1194");
+    cout<<endl;
+    */
+
+    cout << "\nBellman-Ford test: \n";
+    BF<string, double> bf(&u2graph, "2662");
+    bf.print();
+
+    cout << "\nA* test: \n";
+    Asterisk<string, double> a(&u2graph, "2662","1194");
+    a.print();
+
+}
+
 
 #endif //GRAPH_PROJECT_GRAPH_ITEROS_TESTER_H

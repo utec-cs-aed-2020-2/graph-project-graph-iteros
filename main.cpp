@@ -13,11 +13,18 @@ int main(int argc, char *argv[]) {
 
 
     std::cout << "================================================" << std::endl;
-    std::cout << "PARSER" << std::endl;
+    std::cout << "PARSER  PERU" << std::endl;
     std::cout << "================================================" << std::endl;
 
 
-    Tester::executeParser();
+    Tester::executeParserPeru("../Parser/Data/pe.json");
+
+    std::cout << "================================================" << std::endl;
+    std::cout << "PARSER  MUNDO" << std::endl;
+    std::cout << "================================================" << std::endl;
+
+    Tester::executeParserMundo("../Parser/Data/airports.json");
+
 
     return EXIT_SUCCESS;
 }

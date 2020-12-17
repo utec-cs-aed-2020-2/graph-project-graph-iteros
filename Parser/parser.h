@@ -16,7 +16,7 @@ using namespace rapidjson;
 struct Parser {
     Document d;
     void clear(); // Clears parser saved atributes
-    void readJSON(); // Parses JSON file and saves data into class
+    void readJSON(string); // Parses JSON file and saves data into class
     // NOTE: each derived class has its own read JSON method
     void uGraphMake(UnDirectedGraph<string, double> &tempGraph); // Adds the parsed data into the specified undirected graph
     void dGraphMake(DirectedGraph<string, double> &tempGraph); // Adds the parsed data into the specified directed graph
@@ -29,8 +29,8 @@ void Parser::clear() {
 
 }
 
-void Parser::readJSON() {
-    std::ifstream is("../Parser/Data/pe.json",std::ifstream::binary);
+void Parser::readJSON(string path) {
+    std::ifstream is(path,std::ifstream::binary);
     if (is) {
         // get length of file:
         is.seekg(0, is.end);
