@@ -17,10 +17,6 @@ struct compWeight {
 template<typename TV, typename TE>
 class UnDirectedGraph : public Graph<TV, TE>{
 private:
-    ///TODO: No sé qué quieran agregar al grafo
-    char* name;
-    int airportID;
-    //vector<int> destinos;
 
 public:
     UnDirectedGraph();
@@ -94,28 +90,6 @@ bool UnDirectedGraph<TV, TE>::createEdge(string id1, string id2, TE w) {
     }
 
     return false;
-    // Creo que faltaría verificar algunas cosas antes de insertar una arista
-    /*
-    // Para verificar que los vértices existan
-    if ( this->vertexes.count(id1) + this->vertexes.count(id2) == 2  ) {
-
-        // Para recorrer las aristas que tenga un vértice, como es no dirigido solo hace falta recorrer el de 1 ya que si está, estará en el otro y si no está, lo mismo
-        for (auto it : this->vertexes[id1]->edges) {
-            if (it->vertexes[1]->data == this->vertexes[id2]->data)
-                // Si esto pasa significa que ya existe una arista de id1 -> id2
-                return false;
-        }
-
-        // Si existen los vértices y no existe una arista entre estos, se crea
-        this->vertexes[id1]->edges.push_back(new Edge<TV, TE>(this->vertexes[id1], this->vertexes[id2], w));
-        this->vertexes[id2]->edges.push_back(new Edge<TV, TE>(this->vertexes[id2], this->vertexes[id1], w));
-        this->edges++;
-        return true;
-    }
-
-    //Si no existen los vértices no se puede crear una arista
-    return false;
-     */
 }
 
 template<typename TV, typename TE>
@@ -173,7 +147,6 @@ bool UnDirectedGraph<TV, TE>::isDense(float threshold) {
 
 template<typename TV, typename TE>
 bool UnDirectedGraph<TV, TE>::isConnected() {
-    //TODO
     auto id = this->vertexes.begin()->first;
     std::unordered_map<TV, bool> visited;
     std::queue<Vertex<TV, TE>*> q;
@@ -192,7 +165,6 @@ bool UnDirectedGraph<TV, TE>::isConnected() {
             if (visited[(it->vertexes)[1]->data] == false) {
                 q.push((it->vertexes)[1]);
                 visited[(it->vertexes)[1]->data] = true;
-                //std::cout <<  u->data << "<->" << (it->vertexes)[1]->data << " ";
             }
         }
     }
@@ -231,7 +203,6 @@ template<typename TV, typename TE>
 pair<double,double> UnDirectedGraph<TV, TE>::getPositionById(string id) {
     if (this->vertexes.find(id) == this->vertexes.end())
         return make_pair(0,0);
-    //std::cout <<this-> vertexes[id]->latitud<<" "<<this-> vertexes[id]->longitud<<std::endl;
     return make_pair(this-> vertexes[id]->latitud,this-> vertexes[id]->longitud);
 }
 
@@ -504,8 +475,6 @@ UnDirectedGraph<TV, TE> UnDirectedGraph<TV, TE>::ExeBFS() {
 
 template<typename TV, typename TE>
 unordered_map<string, TE> UnDirectedGraph<TV, TE>::ExeDijkstra(string src) {
-    /// TODO: Falta crear la tabla de parents y el grafo (si es necesario)
-    // UnDirectedGraph<TV, TE> g;
     priority_queue<EPair<TV, TE>, std::vector<EPair<TV, TE>>, compPairs<TV, TE>> pq;
     unordered_map<string, TE> dist;
 

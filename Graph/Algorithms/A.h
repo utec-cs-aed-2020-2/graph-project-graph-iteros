@@ -87,7 +87,6 @@ vector<string> Asterisk<TV, TE>::apply() {
             }
         }
     }
-
     return visited;
 }
 

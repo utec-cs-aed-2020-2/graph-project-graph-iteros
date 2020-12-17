@@ -6,10 +6,7 @@
 template<typename TV, typename TE>
 class DirectedGraph : public Graph<TV, TE>{
 private:
-    ///TODO: No sé qué quieran agregar al grafo
-    char* name;
-    int airportID;
-    vector<int> destinos;
+
 public:
     DirectedGraph();
 
@@ -108,8 +105,6 @@ bool DirectedGraph<TV, TE>::isDense(float threshold) {
 
 template<typename TV, typename TE>
 bool DirectedGraph<TV, TE>::isConnected() {
-    //TODO
-
     for(auto iter : this->vertexes) {
         auto id = iter.first;
         std::unordered_map<TV, bool> visited;
@@ -142,8 +137,6 @@ bool DirectedGraph<TV, TE>::isConnected() {
 
 template<typename TV, typename TE>
 bool DirectedGraph<TV, TE>::isStronglyConnected() {
-    //TODO
-
     // Para que sea fuertemente conectado debe tener camino entre cualquier par de vértices
     int comp = 0;
     for(auto iter : this->vertexes) {
@@ -168,10 +161,8 @@ bool DirectedGraph<TV, TE>::isStronglyConnected() {
         }
 
         for (auto x : visited) {
-            if (!x.second)
-                return false;
+            if (!x.second) return false;
         }
-
         comp++;
     }
 
@@ -180,7 +171,7 @@ bool DirectedGraph<TV, TE>::isStronglyConnected() {
 
 template<typename TV, typename TE>
 bool DirectedGraph<TV, TE>::empty() {
-    return this->vertexes.size() != 0;
+    return this->vertexes.size() == 0;
 }
 
 template<typename TV, typename TE>

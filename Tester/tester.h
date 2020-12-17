@@ -22,42 +22,87 @@ struct Tester {
 };
 
 void Tester::executeExamples() {
-    Graph<char, int>* g = new DirectedGraph<char, int>();
-    g->insertVertex("1", 'A');
-    g->insertVertex("2", 'B');
-    g->insertVertex("3", 'C');
-    g->insertVertex("4", 'D');
+    cout << "Directed Graph: " << endl;
 
-    g->createEdge("1", "2", 10);
-    g->createEdge("1", "2", 12);
-    g->createEdge("1", "3", 5);
-    g->createEdge("3", "4", 15);
-    g->createEdge("2", "4", 20);
+    DirectedGraph<char, int> graph1;
+    graph1.insertVertex("1", 'A');
+    graph1.insertVertex("2", 'B');
+    graph1.insertVertex("3", 'C');
+    graph1.insertVertex("4", 'D');
+    graph1.insertVertex("5", 'E');
 
-    UnDirectedGraph<char, int> graph;
-    graph.insertVertex("1", 'A');
-    graph.insertVertex("2", 'B');
-    graph.insertVertex("3", 'C');
-    graph.insertVertex("4", 'D');
-    graph.insertVertex("5", 'E');
+    graph1.createEdge("1", "2", 10);
+    graph1.createEdge("1", "3", 5);
+    graph1.createEdge("3", "4", 15);
+    graph1.createEdge("2", "4", 20);
+    graph1.createEdge("1", "4", 12);
+    graph1.createEdge("2", "5", 25);
+    graph1.createEdge("4", "5", 30);
 
-    graph.createEdge("1", "2", 10);
-    graph.createEdge("1", "5", 12);
-    graph.createEdge("1", "3", 5);
-    graph.createEdge("3", "4", 15);
-    graph.createEdge("2", "4", 20);
-    graph.createEdge("2", "3", 14);
+    graph1.display(); cout << endl;
+    cout << "Density: " << graph1.density() << endl;
 
-    graph.display();
+    cout << "Is the graph dense? ";
+    if (graph1.isDense(0.6)) cout << "Yes." << endl;
+    else cout << "No." << endl;
+
+    cout << "Is the graph connected? ";
+    if (graph1.isConnected()) cout << "Yes." << endl;
+    else cout << "No." << endl;
+
+    cout << "Is vertex 3 on the graph? ";
+    if (graph1.findById("3")) cout << "Yes." << endl;
+    else cout << "No." << endl;
+
+    cout << "Vertex 3: ";
+    graph1.displayVertex("3");
+
     cout << endl;
 
-    Kruskal<char, int> kruskal(&graph);
+    cout << "Undirected Graph: " << endl;
+
+    UnDirectedGraph<char, int> graph2;
+    graph2.insertVertex("1", 'A');
+    graph2.insertVertex("2", 'B');
+    graph2.insertVertex("3", 'C');
+    graph2.insertVertex("4", 'D');
+    graph2.insertVertex("5", 'E');
+
+    graph2.createEdge("1", "2", 10);
+    graph2.createEdge("1", "3", 5);
+    graph2.createEdge("3", "4", 15);
+    graph2.createEdge("2", "4", 20);
+    graph2.createEdge("1", "4", 12);
+    graph2.createEdge("2", "5", 25);
+    graph2.createEdge("4", "5", 30);
+
+    graph2.display(); cout << endl;
+    cout << "Density: " << graph2.density() << endl;
+
+    cout << "Is the graph dense? ";
+    if (graph2.isDense(0.6)) cout << "Yes." << endl;
+    else cout << "No." << endl;
+
+    cout << "Is the graph connected? ";
+    if (graph2.isConnected()) cout << "Yes." << endl;
+    else cout << "No." << endl;
+
+    cout << "Is vertex 5 on the graph? ";
+    if (graph2.findById("5")) cout << "Yes." << endl;
+    else cout << "No." << endl;
+
+    cout << "Vertex 5: ";
+    graph2.displayVertex("5");
+
+    cout << endl;
+
+    Kruskal<char, int> kruskal(&graph2);
     UnDirectedGraph<char, int> result1 = kruskal.apply();
 
-    Prim<char, int> prim(&graph, "3");
+    Prim<char, int> prim(&graph2, "3");
     UnDirectedGraph<char, int> result2 = prim.apply();
 
-    BFS<char, int> bfs(&graph);
+    BFS<char, int> bfs(&graph2);
     auto g2=bfs.apply("4");
     g2.display();
 
@@ -85,8 +130,6 @@ void Tester::executeExamples() {
     SCC<int, int> scc(&dg);
     auto m = scc.apply();
     cout<<"IS STRONGLY CONNECTED?????:   " << (m?"TRUE"  : "FALSE") <<endl;
-
-
 }
 
 void Tester::executeParserPeru(string path) {
