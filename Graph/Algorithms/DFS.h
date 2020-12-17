@@ -9,15 +9,17 @@
 
 template<typename TV, typename TE>
 struct DFS {
+    string src;
     UnDirectedGraph<TV, TE> *graph;
-    DFS(UnDirectedGraph<TV, TE> *graph);
+    DFS(UnDirectedGraph<TV, TE> *graph, string _src_);
     UnDirectedGraph<TV, TE> apply();
 };
 
 
 template<typename TV, typename TE>
-DFS<TV, TE>::DFS(UnDirectedGraph<TV, TE> *_graph_) {
+DFS<TV, TE>::DFS(UnDirectedGraph<TV, TE> *_graph_, string _src_) {
     this->graph = _graph_;
+    src = _src_;
 }
 
 template<typename TV, typename TE>
@@ -32,9 +34,9 @@ UnDirectedGraph<TV, TE> DFS<TV, TE>::apply() {
         g.insertVertex(x.first , (x.second)->data, x.second->latitud, x.second->latitud);     // Rellenar los vértices
     }
 
-    visited[graph->vertexes.begin()->second->key].first = true;
-    S.push(make_pair(nullptr, graph->vertexes.begin()->second));
-    // cout << "BEGIN: " << graph->vertexes.begin()->second->data << endl;
+    visited[graph->vertexes[src]->key].first = true;
+    S.push(make_pair(nullptr, graph->vertexes[src]));
+
     while(!S.empty()) {
         Vertex<TV, TE>* v = S.top().second;
         S.pop();
